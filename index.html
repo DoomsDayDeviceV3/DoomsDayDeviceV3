@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="IRSite - a site made my Ily R.">
+    </head>
+    <body>
+        <header>
+            <a href="home.html"><img src="images/logo.png" alt="IRSite Logo" class="headerLogo"></a>
+            <h1>
+                IRSite
+            </h1>
+        </header>
+        <nav>
+            <a class="navButton navButtonLeft" href="home.html">
+                <p class="navText">Home</p>
+            </a>
+            <a class="navButton navButtonMid" href="">
+                <p class="navText">About</p>
+            </a>
+            <a class="navButton navButtonMid" href="">
+                <p class="navText">Page 1</p>
+            </a>
+            <a class="navButton navButtonRight" href="">
+                <p class="navText">Page 2</p>
+            </a>
+        </nav>
+        <main>
+            <section>
+                <div class="sectionHead">
+                    Welcome
+                </div>
+                <div class="sectionBody">
+                    <div class="sectionContent">
+                        This site was made by myself for myself. Nevertheless, enjoy.
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="sectionHead">
+                    Update Log
+                </div>
+                <div class="sectionBody">
+                    <div class="sectionContent updateLog" id="updateLog">
+                        <script>updateLogLoadAndSet("updateLog")</script>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <script>footerBottomExtension()</script>
+            <p class="footerText">
+                <a style="color: inherit;" href="home.html">Home</a>
+            </p>
+        </footer>
+    </body>
+</html>
