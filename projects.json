@@ -1,0 +1,117 @@
+[
+  {
+    "id": 10,
+    "briefTitle": "MPC Humanoid Juggling",
+    "longTitle": "Underactuated Juggling with MPC on Unitree G1",
+    "briefDescription": "",
+    "longDescription": "This project studies dynamic ball juggling using a simulated Unitree G1 humanoid robot with its hands replaced by rigid bowls. The goal is to repeatedly throw a ball from one bowl and catch it with the other, using only the arm joints for control. We work entirely in MuJoCo and explore two control strategies which share the same underlying sampling-based Model Predictive Control (MPC) infrastructure: (i) a direct MPC controller that optimizes a hand-crafted cost over future trajectories of the ball and bowls, and (ii) a phase-based 'energy-shaping' controller that structures the throw into Spin, Tilt, and Release phases and shapes the kinetic energy of the ball through bowl motion. Both controllers rely on a predictive-sampling planner running at 500 Hz with a short horizon of 0.3 s. We describe the system modeling, cost design, phase logic, and a number of engineering techniques used to obtain physically plausible throws and catches, such as contact damping and analytic landing prediction. We qualitatively compare the behavior of the two controllers and highlight failure modes and successes, and how the system could be extended to more robust multiball juggling and real hardware experiments.",
+    "imageSrc": "juggling.jpg",
+    "gallery": [
+        "juggling.jpg"
+    ],
+    "tags": ["Python", "MuJoCo", "Fusion 360", "Unix"],
+    "links": [
+    ]
+  },
+  {
+    "id": 9,
+    "briefTitle": "Analysis of VLAs",
+    "longTitle": "Unveiling the Feature Geometry of Robot Foundation Models via Nyström NCut",
+    "briefDescription": "",
+    "longDescription": "Vision-Language-Action (VLA) models have emerged as powerful robot foundation models, yet their internal representations remain largely opaque. We apply Nyström Normalized Cuts to visualize and analyze feature geometry across VLA hidden layers, revealing how these models process multimodal inputs during manipulation tasks. Our analysis uncovers strong object-centric semantic clustering and sensitivity to failure indicators, but also exposes critical limitations in spatial reasoning and language grounding. Through controlled experiments on OpenVLA, we demonstrate that visual features dominate over language by a factor of 10×, and that spatial information fails to generalize despite perfect training-set memorization. These findings provide actionable insights for debugging and improving robot foundation models.",
+    "imageSrc": "VLA.jpg",
+    "gallery": [
+        "VLA.jpg"
+    ],
+    "tags": ["Python"],
+    "links": [
+        {"label": "GitHub - NCut", "url": "https://github.com/NZ-Liam-Zhong/Final_Project_On_Jianbo_Class"}
+    ]
+  },
+  {
+    "id": 8,
+    "briefTitle": "Proof-of-concept RET Brace",
+    "longTitle": "Proof-of-concept RET Brace",
+    "briefDescription": "",
+    "longDescription": "",
+    "imageSrc": "brace.jpg",
+    "gallery": [
+        "brace.jpg"
+    ],
+    "tags": ["C/C++", "Python", "Assembly", "Cypress PSoC", "MATLAB", "Simulink", "Fusion 360", "3D printing", "HDPE plastic forming", "Metal forming"],
+    "links": [
+        {"label": "GitHub - RET-Brace", "url": "https://github.com/DoomsDayDeviceV3/RET-Brace"}
+    ]
+  },
+  {
+    "id": 7,
+    "briefTitle": "Competitive Line-following Buggy",
+    "longTitle": "Competitive Robot for Line Following of Difficult Track and Conditions",
+    "briefDescription": "",
+    "longDescription": "",
+    "imageSrc": "buggy.jpg",
+    "gallery": [
+        "buggy.jpg"
+    ],
+    "tags": ["C/C++", "ARM Cortex-M0&3", "STM32", "Fusion 360", "Altium"],
+    "links": [
+    ]
+  },
+  {
+    "id": 6,
+    "briefTitle": "Combat Robotics at RoboSoc",
+    "longTitle": "RoboSoc's Robot Fighting League (RFL)",
+    "briefDescription": "",
+    "longDescription": "",
+    "imageSrc": "meltybrain.jpg",
+    "gallery": [
+        "meltybrain.jpg"
+    ],
+    "tags": ["Fusion 360", "STM32", "Silicone forming", "Metal forming", "Altium"],
+    "links": [
+        {"label": "RoboSoc", "url": "https://uom-robosoc.com/"},
+        {"label": "GitHub - Oreo", "url": "https://github.com/BTSC10/Oreo"}
+    ]
+  },
+  {
+    "id": 5,
+    "briefTitle": "Hack-a-Bot: 2023-2025",
+    "longTitle": "Hack-a-Bot: 2023, 2024, 2025",
+    "briefDescription": "",
+    "longDescription": "",
+    "imageSrc": "hackabot2023.jpg",
+    "gallery": ["hackabot2023.jpg", "rover-open.jpg"],
+    "tags": ["C/C++", "Arduino", "Metal forming"],
+    "links": [
+        {"label": "RoboSoc", "url": "https://uom-robosoc.com/"},
+        {"label": "Sony 2025 Post", "url": "https://developer.sony.com/posts/hack-a-bot-2025-imx500-powers-24-hour-student-hackathon"},
+        {"label": "Sony 2024 Post", "url": "https://developer.sony.com/posts/24-hours-to-hack-inside-the-3rd-annual-hack-a-bot-at-the-university-of-manchester"}
+    ]
+  },
+  {
+    "id": 2,
+    "briefTitle": "CEESA FIRST Challenge 2022",
+    "longTitle": "CEESA FIRST Challenge 2022",
+    "briefDescription": "",
+    "longDescription": "",
+    "imageSrc": "water.jpg",
+    "gallery": [
+        "water.jpg"
+    ],
+    "tags": ["Python", "Metal forming"],
+    "links": [
+    ]
+  },
+  {
+    "id": 1,
+    "briefTitle": "MIT Bottle Hack Challenge",
+    "longTitle": "MIT Bottle Hack Challenge",
+    "briefDescription": "1st place finish at",
+    "longDescription": "",
+    "imageSrc": "https://placehold.co/600x400/e2e8f0/475569?text=...",
+    "gallery": [],
+    "tags": [],
+    "links": [
+    ]
+  }
+]

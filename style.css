@@ -1,0 +1,646 @@
+:root {
+    --primary-colour: #2563eb; /* Blue */
+    --secondary-colour: #1e293b; /* Dark Slate */
+    --bg-colour: #ffffff; /* Light Gray */
+    --nav-colour: #ffffff;
+    --primary-head-colour: #000000;
+    --text-colour: #334155; /* Dark Gray */
+    --black: #000000;
+    --white: #ffffff;
+    --spacing: 2rem;
+
+	--fade-height: 2rem;
+}
+
+/* * {
+	outline: 1px solid rgba(0, 0, 0, 0.2);
+	outline-offset: -1px;
+} */
+
+html, body {
+    overscroll-behavior: none;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-colour); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.hr-frame {
+	border: none;
+	height: 1px;
+	width: 90%;
+	background-color: #343436;
+	margin: 0.5rem auto 0.5rem;
+}
+
+.hr-frame-div {
+    border: none;
+}
+
+.hr-frame-div-down {
+    background-color: var(--white);
+    border: none;
+    position: sticky;
+    bottom: 0;
+}
+
+.hr-frame-div-down::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(-1 * var(--fade-height));
+
+	height: var(--fade-height);
+	pointer-events: none;
+
+	background: linear-gradient(
+		to top,
+		var(--white) 0%,
+		/* white 50%, */
+		rgba(255,255,255,0) 100%
+	);
+}
+
+.warning-banner {
+	visibility: visible;
+	/* visibility: hidden; */
+	background-color: rgb(229, 196, 32);
+	border-radius: 0 0 0.2rem 0.2rem;
+	text-align: center;
+	border: #000000;
+	border-style: dashed;
+	border-width: 1px;
+}
+
+/* Navigation Bar */
+header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+	padding: 2rem 2rem 0;
+}
+
+header::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: calc(-1 * var(--fade-height));
+
+	height: var(--fade-height);
+	pointer-events: none;
+
+	background: linear-gradient(
+		to bottom,
+		var(--white) 0%,
+		/* var(--white) 50%, */
+		rgba(255,255,255,0) 100%
+	);
+}
+
+.navbar {
+    background: var(--white);
+    padding: 2rem 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
+}
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--black);
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a:hover {
+    color: var(--primary-colour);
+}
+
+.btn {
+	display: inline-block;
+	background-color: var(--primary-colour);
+	color: var(--white);
+	padding: 0.75rem 1.5rem;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.btn:hover {
+	opacity: 0.9;
+	transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.menu-toggle {
+	display: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+}
+
+/* Cards */
+ .card {
+    background: var(--white);
+    /* No padding here, we move padding to inner content so image hits the edges */
+    padding: 0; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+    overflow: hidden; /* Ensures image corners get rounded by border-radius */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* New Image Styling */
+.card-image {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image covers area without stretching */
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Inner container for text to have padding */
+.card-content {
+    padding: 1.5rem;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-colour);
+}
+
+.card p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* View More Button Styling */
+.view-more-container {
+    text-align: center;
+    margin: 2rem;
+    width: 100%;
+}
+
+/* 
+.view-more-container::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(-1 * var(--fade-height));
+
+	height: var(--fade-height);
+	pointer-events: none;
+
+	background: linear-gradient(
+		to top,
+		var(--white) 0%,
+		rgba(255,255,255,0) 100%
+	);
+}
+*/
+
+.view-more-btn {
+    display: inline-block;
+    background-color: var(--secondary-colour);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.view-more-btn:hover {
+    background-color: #334155; /* Slightly lighter shade */
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+	background: var(--secondary-colour);
+	color: var(--white);
+	text-align: center;
+	padding: 1rem 2rem;
+	/* margin-top: 4rem; */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+	.nav-links {
+		display: none;
+		flex-direction: column;
+		width: 100%;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		background: var(--white);
+		padding: 1rem;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	}
+
+	.nav-links.active {
+		display: flex;
+	}
+
+	.menu-toggle {
+		display: block;
+	}
+
+	.hero h1 {
+		font-size: 2rem;
+	}
+}
+
+
+/* Hero Section */
+.hero {
+	text-align: center;
+	padding: 100px 20px;
+	background: linear-gradient(135deg, var(--white) 0%, #eff6ff 100%);
+}
+
+.hero h1 {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	color: var(--secondary-colour);
+}
+
+.hero p {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	color: #64748b;
+}
+
+/* General Section Styling */
+section {
+	padding: 2rem 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	color: var(--secondary-colour);
+}
+
+h2 {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	color: var(--secondary-colour);
+}
+
+/* Grid Layout for Projects/Skills */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+}
+
+/* Search Bar Styling */
+/* Controls Layout */
+.controls-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex-wrap: wrap; /* Stacking on mobile */
+}
+
+/* Search Bar - Flex Grow to take available space */
+.search-input {
+    flex: 1; 
+    min-width: 250px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    outline: none;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #0284c7;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(2, 132, 199, 0.1);
+}
+
+/* Dropdown Styling */
+.tag-filter {
+    padding: 1rem 2.5rem 1rem 1.5rem; /* Extra right padding for the arrow */
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    outline: none;
+    background-color: #f8fafc;
+    color: var(--text-color);
+    cursor: pointer;
+    appearance: none; /* Remove default browser arrow */
+    
+    /* Custom Arrow Icon */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.tag-filter:hover, .tag-filter:focus {
+    border-color: #0284c7;
+    background-color: var(--white);
+}
+
+.no-results {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #64748b;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* --- Filter Menu Styling --- */
+
+.filter-wrapper {
+    position: relative; /* Anchor for the absolute dropdown */
+    display: inline-block;
+}
+
+/* The Button that opens the menu */
+.filter-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--white);
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.filter-toggle-btn:hover {
+    border-color: #0284c7;
+    background-color: #f8fafc;
+}
+
+/* Arrow rotation when active */
+.filter-toggle-btn .arrow {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.filter-wrapper.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* The Dropdown Container */
+.filter-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 110%; /* Just below the button */
+    right: 0;
+    width: 300px;
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    z-index: 100; /* Ensure it floats above cards */
+}
+
+.filter-wrapper.open .filter-dropdown {
+    display: block; /* Show when parent has 'open' class */
+}
+
+/* The Tag Items inside the menu */
+.filter-tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-option {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    background-color: #f8fafc;
+    color: var(--text-color);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.tag-option:hover {
+    background-color: #e0f2fe;
+    border-color: #0284c7;
+}
+
+/* Active State (Selected) */
+.tag-option.active {
+    background-color: #0284c7;
+    color: var(--white);
+    border-color: #0284c7;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* --- Modal / Popup Styling --- */
+
+/* 1. The Overlay (Background) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dimmed background */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* Click-through when hidden */
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* 2. The Modal Content Box */
+.modal-container {
+    background: var(--white);
+    width: 90%;
+    max-width: 900px;
+    height: 85vh; /* Fixed height relative to viewport */
+    border-radius: 16px; /* Curved corners */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden; /* Contains the scrollbar inside */
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+/* 3. Close Button */
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+}
+
+.close-modal-btn:hover {
+    color: red;
+}
+
+/* 4. Modal Header */
+.modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.modal-header h2 {
+    margin: 0;
+    padding-right: 2rem; /* Space for close button */
+    color: var(--secondary-colour);
+}
+
+/* 5. Scrollable Body */
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto; /* Scrollable content */
+}
+
+/* 6. Two-Column Layout */
+.modal-split-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 Left, 2/3 Right */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .modal-split-section {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}
+
+/* Left Column Styling */
+.modal-meta-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary-colour);
+    margin-bottom: 1rem;
+}
+
+.modal-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.modal-link-item {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.modal-link-item:hover {
+    text-decoration: underline;
+}
+
+/* Right Column Styling */
+.modal-description {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* 7. Gallery Section */
+.modal-gallery-section h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary-colour);
+    border-top: 1px solid #e2e8f0;
+    padding-top: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IR Portfolio">
+    <title>IRPortfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="warning-banner">« Notice: Site is temporarily underdergoing construction and may appear broken or incomplete. »</div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">IRPortfolio</a></div>
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hr-frame-div">
+            <hr class="hr-frame">
+        </div>
+
+    </header>
+
+    <main style="display: flex; align-items: center;">
+
+        <section id="contact" style="margin-bottom: 10rem;">
+            <h1>Hi! Feel free to reach out:</h1>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <p><strong>Linkedin: </strong><a href="https://www.linkedin.com/in/ily-r/">www.linkedin.com/in/ily-r/</a></p>
+                <p><strong>Email: </strong><a href="mailto:ilyr@seas.upenn.edu">ilyr@seas.upenn.edu</a></p>
+                <p><strong>GitHub: </strong><a href="https://github.com/DoomsDayDeviceV3">DoomsDayDeviceV3</a></p>
+                <!-- <p></p> -->
+            </div>
+        </section>
+    
+    </main>
+
+    <div class="hr-frame-div-down">
+        <hr class="hr-frame">
+    </div>
+
+    <footer id="footer">
+        <p>© <span id="year"></span> I.R. | All rights reserved.</p>
+        <p>
+            <a href="https://github.com/DoomsDayDeviceV3">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/ily-r/">LinkedIn</a> | 
+            <a href="mailto:ilyr@seas.upenn.edu">Email Me</a>
+        </p>
+    </footer>
+
+    <script>
+        // Auto-update the year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
