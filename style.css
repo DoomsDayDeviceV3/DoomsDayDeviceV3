@@ -55,6 +55,7 @@ img { max-width: 100%; display: block; }
     border: none;
     position: sticky;
     bottom: 0;
+	padding-bottom: 2rem;
 }
 
 .hr-frame-div-down::before {
@@ -76,8 +77,8 @@ img { max-width: 100%; display: block; }
 }
 
 .warning-banner {
-	visibility: visible;
-	/* visibility: hidden; */
+	display: none; /* Item Hiding */
+
 	background-color: rgb(229, 196, 32);
 	border-radius: 0 0 0.2rem 0.2rem;
 	text-align: center;
@@ -93,7 +94,7 @@ header {
     top: 0;
     z-index: 1000;
 
-	padding: 2rem 2rem 0;
+	padding: 0 2rem 0;
 }
 
 header::after {
@@ -157,20 +158,27 @@ header::after {
 }
 
 /* Cards */
- .card {
+.card {
     background: var(--white);
-    /* No padding here, we move padding to inner content so image hits the edges */
-    padding: 0; 
+    padding: 0;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border: 1px solid #e2e8f0;
-    transition: transform 0.2s;
-    overflow: hidden; /* Ensures image corners get rounded by border-radius */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    /* Default cursor is standard arrow */
+    cursor: default; 
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
+/* Create a new class for interactive cards only */
+.card.interactive {
+    cursor: pointer; /* Pointer only on clickable cards */
+}
+
+/* Move the hover effect to ONLY apply to the interactive class */
+.card.interactive:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
@@ -200,23 +208,48 @@ header::after {
     line-height: 1.5;
 }
 
-.tag {
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0284c7;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-    font-weight: 600;
+/* --- Filter & Tag Styling --- */
+
+/* Container for Search + Toggle Button */
+.search-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Permanent "Quick" Tags Row */
+.quick-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    min-height: 2rem; /* Prevent layout jump if empty */
+}
+
+/* The Hidden "All Tags" Section */
+.all-tags-container {
+    display: none; /* Hidden by default */
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.all-tags-container.open {
+    display: flex; /* Visible when toggled */
 }
 
 /* View More Button Styling */
 .view-more-container {
     text-align: center;
     margin: 2rem;
-    width: 100%;
 }
 
 /* 
@@ -256,8 +289,10 @@ header::after {
 
 /* Footer */
 footer {
-	background: var(--secondary-colour);
-	color: var(--white);
+	/* background: var(--secondary-colour);
+	color: var(--white); */
+	color: var(--secondary-colour);
+	background: var(--white);
 	text-align: center;
 	padding: 1rem 2rem;
 	/* margin-top: 4rem; */
@@ -312,9 +347,9 @@ footer {
 
 /* General Section Styling */
 section {
-	padding: 2rem 2rem;
+	/* padding: 2rem 2rem; */
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 3rem auto;
 }
 
 h1 {
@@ -368,31 +403,6 @@ h2 {
     border-color: #0284c7;
     background-color: var(--white);
     box-shadow: 0 4px 6px rgba(2, 132, 199, 0.1);
-}
-
-/* Dropdown Styling */
-.tag-filter {
-    padding: 1rem 2.5rem 1rem 1.5rem; /* Extra right padding for the arrow */
-    font-size: 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 50px;
-    outline: none;
-    background-color: #f8fafc;
-    color: var(--text-color);
-    cursor: pointer;
-    appearance: none; /* Remove default browser arrow */
-    
-    /* Custom Arrow Icon */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1rem;
-    transition: all 0.2s ease;
-}
-
-.tag-filter:hover, .tag-filter:focus {
-    border-color: #0284c7;
-    background-color: var(--white);
 }
 
 .no-results {
@@ -467,30 +477,6 @@ h2 {
     gap: 0.5rem;
 }
 
-.tag-option {
-    padding: 0.5rem 1rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    background-color: #f8fafc;
-    color: var(--text-color);
-    transition: all 0.2s;
-    user-select: none;
-}
-
-.tag-option:hover {
-    background-color: #e0f2fe;
-    border-color: #0284c7;
-}
-
-/* Active State (Selected) */
-.tag-option.active {
-    background-color: #0284c7;
-    color: var(--white);
-    border-color: #0284c7;
-}
-
 /* ---------------------------------------------------------------------------- */
 /* --- Modal / Popup Styling --- */
 
@@ -534,6 +520,12 @@ h2 {
 
 .modal-overlay.active .modal-container {
     transform: scale(1);
+}
+
+/* Styling for paragraphs in the modal */
+.modal-description p {
+    margin-bottom: 1rem;
+    margin-block: 1rem;
 }
 
 /* 3. Close Button */
@@ -643,4 +635,28 @@ h2 {
 
 .gallery-img:hover {
     transform: scale(1.02);
+}
+
+/* The anchor tag acting as the container */
+.gallery-link {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden; /* Ensures zoom effect stays inside border */
+    background: var(--white);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block; /* Removes default bottom spacing */
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+/* Simple visual feedback on hover */
+.gallery-link:hover .gallery-img {
+    transform: scale(1.05);
+    opacity: 0.9;
 }

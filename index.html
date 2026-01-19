@@ -7,6 +7,7 @@
     <title>IRPortfolio</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tags.css">
     <style>
     </style>
 </head>
@@ -40,9 +41,9 @@
          -->
 
         <section id="about">
-            <h2>About Me</h2>
+            <!-- <h2>About Me</h2> -->
             <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <p>Passionate in robotics, and specialised in interdisciplinary development.</p>
+                <p style="font-size: large;">Passionate in robotics, and specialised in multidisciplinary development.</p>
                 <!-- <p></p> -->
             </div>
         </section>
@@ -68,7 +69,7 @@
  -->
 
         <section id="projects">
-            <h2 style="text-align: center; color: var(--secondary-colour);">My Projects</h2>
+            <h2 style="text-align: center; color: var(--secondary-colour);">My Recent Projects</h2>
             
             <div class="grid" id="projects-container">
                 </div>
@@ -81,7 +82,7 @@
             {
                 const container = document.getElementById('projects-container');
                 const viewMoreContainer = document.getElementById('view-more-container');
-                const MAX_CARDS = 6;
+                const MAX_CARDS = 3;
 
                 // Fetch the data
                 fetch('projects.json')
@@ -118,7 +119,7 @@
                             const viewMoreLink = document.createElement('a');
                             viewMoreLink.href = 'projects.html'; // Path to your full list page
                             viewMoreLink.className = 'view-more-btn';
-                            viewMoreLink.textContent = 'Explore Further...';
+                            viewMoreLink.textContent = 'Details and more...';
                             
                             viewMoreContainer.appendChild(viewMoreLink);
                         }

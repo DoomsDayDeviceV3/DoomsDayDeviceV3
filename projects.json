@@ -3,29 +3,52 @@
     "id": 10,
     "briefTitle": "MPC Humanoid Juggling",
     "longTitle": "Underactuated Juggling with MPC on Unitree G1",
-    "briefDescription": "",
-    "longDescription": "This project studies dynamic ball juggling using a simulated Unitree G1 humanoid robot with its hands replaced by rigid bowls. The goal is to repeatedly throw a ball from one bowl and catch it with the other, using only the arm joints for control. We work entirely in MuJoCo and explore two control strategies which share the same underlying sampling-based Model Predictive Control (MPC) infrastructure: (i) a direct MPC controller that optimizes a hand-crafted cost over future trajectories of the ball and bowls, and (ii) a phase-based 'energy-shaping' controller that structures the throw into Spin, Tilt, and Release phases and shapes the kinetic energy of the ball through bowl motion. Both controllers rely on a predictive-sampling planner running at 500 Hz with a short horizon of 0.3 s. We describe the system modeling, cost design, phase logic, and a number of engineering techniques used to obtain physically plausible throws and catches, such as contact damping and analytic landing prediction. We qualitatively compare the behavior of the two controllers and highlight failure modes and successes, and how the system could be extended to more robust multiball juggling and real hardware experiments.",
+    "briefDescription": "Underactuated control of a humanoid via MPC and Energy Shaping.",
+    "longDescription": [
+      "This project studied under actuated control methods, applied to a simulated Unitree G1 humanoid in MuJoCo. Adapted with bowl end-effectors, this project implemented juggling of balls between each arm.",
+      "Model Predictive Control (MPC) specifically was explored, with two control strategies proving most effective:",
+      "1) a direct MPC controller that optimises a hand-crafted cost over future trajectories of the ball and bowls,",
+      "2) a phase-based 'energy-shaping' controller that structures the throw into Spin, Tilt, and Release phases and shapes the kinetic energy of the ball through bowl motion.",
+      "Both controllers relied on a predictive-sampling planner running at 500 Hz with a short horizon of 0.3 s. We describe the system's modelling, cost design, phase logic, and a number of engineering techniques used to obtain physically plausible throws and catches, such as contact damping and analytic landing prediction. We qualitatively compare the behaviour of the two controllers and highlight failure modes and successes. We also present the system's extendabiliity to more robust multi-ball juggling and real hardware experiments, such as obsticle avoidance."
+    ],
     "imageSrc": "juggling.jpg",
     "gallery": [
-        "juggling.jpg"
+        "juggling.jpg",
+        "juggling2.gif",
+        "juggling3.gif"
     ],
     "tags": ["Python", "MuJoCo", "Fusion 360", "Unix"],
+    "quickTags": ["Robotics", "Software"],
     "links": [
+      {"label": "PDF: Report", "url": "juggle_report.pdf"},
+      {"label": "PDF: Poster", "url": "juggle_poster.pdf"}
     ]
   },
   {
     "id": 9,
     "briefTitle": "Analysis of VLAs",
     "longTitle": "Unveiling the Feature Geometry of Robot Foundation Models via Nyström NCut",
-    "briefDescription": "",
-    "longDescription": "Vision-Language-Action (VLA) models have emerged as powerful robot foundation models, yet their internal representations remain largely opaque. We apply Nyström Normalized Cuts to visualize and analyze feature geometry across VLA hidden layers, revealing how these models process multimodal inputs during manipulation tasks. Our analysis uncovers strong object-centric semantic clustering and sensitivity to failure indicators, but also exposes critical limitations in spatial reasoning and language grounding. Through controlled experiments on OpenVLA, we demonstrate that visual features dominate over language by a factor of 10×, and that spatial information fails to generalize despite perfect training-set memorization. These findings provide actionable insights for debugging and improving robot foundation models.",
+    "briefDescription": "Unveiling the feature geometry of robot foundation models via Nyström NCut.",
+    "longDescription": [
+      "Vision-Language-Action (VLA) models have emerged as powerful robot foundation models, yet their internal representations remain largely opaque and difficult for humans to interpret. This project applied Nyström Normalized Cuts to visualize and analyze feature geometry across hidden layers of various VLAs, revealing how these models process multimodal inputs during manipulation tasks.",
+      "Our analysis uncovers strong object-centric semantic clustering and sensitivity to failure indicators, but also exposes critical limitations in spatial reasoning and language grounding. Through controlled experiments on pi0.5 and OpenVLA, we demonstrate that visual features dominate over language by a factor of 10×, and that spatial information fails to generalize despite perfect training-set memorization.",
+      "These findings provide actionable insights for debugging and improving robot foundation models."
+    ],
     "imageSrc": "VLA.jpg",
     "gallery": [
-        "VLA.jpg"
+      "VLA.jpg",
+      "VLA2.gif",
+      "VLA3.gif",
+      "VLA4.jpg",
+      "VLA5.jpg",
+      "VLA6.jpg"
     ],
     "tags": ["Python"],
+    "quickTags": ["Robotics", "Software"],
     "links": [
-        {"label": "GitHub - NCut", "url": "https://github.com/NZ-Liam-Zhong/Final_Project_On_Jianbo_Class"}
+      {"label": "GitHub: VLAs", "url": "https://github.com/NZ-Liam-Zhong/Final_Project_On_Jianbo_Class"},
+      {"label": "PDF: Currently Unavailable", "url": ""},
+      {"label": "Site: Nyström NCut", "url": "https://ncut-pytorch.readthedocs.io/en/latest/"}
     ]
   },
   {
@@ -33,72 +56,247 @@
     "briefTitle": "Proof-of-concept RET Brace",
     "longTitle": "Proof-of-concept RET Brace",
     "briefDescription": "",
-    "longDescription": "",
+    "longDescription": [
+      "Robot-human interaction is an emerging area of healthcare. This exploration proposes a new tool for aiding patients of stroke suffering from loss of motor control.",
+      "Existing robotic tools are predominantly large stationary machines and focus on Active Assistive Training (AAT). This proof-of-concept showcases the ability of modern device to miniaturise these tools into wearables, offering greater accessibility, affordability, and patient customisation. Furthermore, this tool is designed for Resistive Exercise Training (RET) - an underdeveloped research area. It displays the ability to leverage the advantages of robotics to aid traditional clinical scales, offering quantitative feedback, repeatability, and precision.",
+      "Furthermore, the device is entirely manufactured using 3D printing techniques with exceptions for electronics and actuators, to indicate the advantages of 3D printing in medicine.",
+      "This device is implemented with torque capabilities of up to 7 Nm at angular speeds up to 4 rpm, which are within the operating ranges of existing devices. User performance metrics and safety protocols are also implemented. The final product partially demonstrates the intended response to user loading expected of an RET device because of a hardware limitation. Further exploration is required to produce a finished product, however, a plausibility for the product's design and application is clearly demonstrated."
+    ],
     "imageSrc": "brace.jpg",
     "gallery": [
-        "brace.jpg"
+        "brace.jpg",
+        "brace2.jpg",
+        "brace3.jpg",
+        "brace4.jpg",
+        "brace5.jpg",
+        "brace6.jpg",
+        "brace7.jpg",
+        "brace8.jpg",
+        "brace9.jpg",
+        "brace10.jpg"
     ],
-    "tags": ["C/C++", "Python", "Assembly", "Cypress PSoC", "MATLAB", "Simulink", "Fusion 360", "3D printing", "HDPE plastic forming", "Metal forming"],
+    "tags": ["C/C++", "Python", "Assembly", "Cypress PSoC", "MATLAB", "Simulink", "Fusion 360", "3D printing", "Advanced drives", "HDPE plastic forming", "Metal forming"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
-        {"label": "GitHub - RET-Brace", "url": "https://github.com/DoomsDayDeviceV3/RET-Brace"}
+      {"label": "GitHub: RET-Brace", "url": "https://github.com/DoomsDayDeviceV3/RET-Brace"},
+      {"label": "PDF: Currently Unavailable", "url": ""}
+    ]
+  },
+  {
+    "id": 5.5,
+    "briefTitle": "RoboSoc - President",
+    "longTitle": "Head Chairmanship of UoM RoboSoc 2023/2024",
+    "briefDescription": "Leadership of a prominent robotics group teaching at all levels and hosting major events year-round.",
+    "longDescription": [
+      "RoboSoc is a student-led society which strives to teach robotics to anyone interested, and make it enjoyable throughout. Funded by The University of Manchester, it is free for all and teaches hands-on through a variety of projects. RoboSoc also hosts major events year-round, including the 24-hour Hack-a-Bot - the largest UK robotics hackathon.",
+      "As head of the socity in the 2023/24 year, I had a monumental magnitude of responsibilities and commitments to myself, my Committee, and my members. I dedicated myself to this role for an entire year - a true honor and pleasure.",
+      "Under my term, the society offered 7 projects, including: a robot orchestra, a fighting league, a drone project, and a hexapod swarm. I was responsible for overseeing, guiding, and funding all of these, required proficiency in a wide array of applied technical expertise and managerial skills.",
+      "I was also responsible for care of our membership (over 300 strong). This meant serious Risk Assessments, workshop oversight, and emergency leadership. It also meant personal care of the member's social experience and learning, and striving to provide the most enriching experience possible.",
+      "On the managerial side, I also drove growth and new endevours. I took responsibility over sponsorships and industry connections. I also regularly liased with the University President, researchers, and the Engineering Vice Dean of Education."
+    ],
+    "imageSrc": "robosoc.jpg",
+    "gallery": [
+      "robosoc.jpg",
+      "robosoc2.jpeg",
+      "robosoc3.jpeg",
+      "robosoc4.jpeg",
+      "robosoc5.jpeg",
+      "robosoc6.jpeg",
+      "robosoc7.jpeg",
+      "robosoc8.jpeg",
+      "robosoc9.jpeg",
+      "robosoc10.jpeg",
+      "robosoc11.jpeg",
+      "robosoc12.jpg"
+    ],
+    "tags": [],
+    "quickTags": [
+      "Robotics",
+      "Hardware",
+      "Software",
+      "Community"
+    ],
+    "links": [
+      {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"}
     ]
   },
   {
     "id": 7,
     "briefTitle": "Competitive Line-following Buggy",
     "longTitle": "Competitive Robot for Line Following of Difficult Track and Conditions",
-    "briefDescription": "",
-    "longDescription": "",
+    "briefDescription": "Production of a line-following robot for difficult terrain using barebones tools.",
+    "longDescription": [
+      "The Electronic Systems Project (ESP) is a year-long project within the EEE Department of The University of Manchester. In allocated teams, you must design, characterise, test, and produce a line following buggy with capable of navigation a difficult track under harsh conditions.",
+      "I orchestrated the team's development of the robot, and was responsible for a wide range of the robot's functionality and implementation, including:",
+      "- Design and testing of bipolar motor communication and drive sensing;",
+      "- Implementation of microcontroller logic, PID control, and debug I/O;",
+      "- Characterisation and integration of infra-red sensors and analogue signal filtering;",
+      "- Overall mechatronic design and system wiring. ",
+      "Additionally, I oversaw the team's project documentation and write-ups, including the preliminary proposal, weekly reports, and major milestone reports."
+    ],
     "imageSrc": "buggy.jpg",
     "gallery": [
-        "buggy.jpg"
+        "buggy.jpg",
+        "wiring.jpg"
     ],
-    "tags": ["C/C++", "ARM Cortex-M0&3", "STM32", "Fusion 360", "Altium"],
+    "tags": ["C/C++", "ARM Cortex-M0&3", "STM32", "Fusion 360", "Advanced drives", "Altium"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
+      {"label": "YouTube: 2022 Race Day (example)", "url": "https://youtu.be/H5MgimIWXMo?si=YVHBcq2KWmo6Vfjc&t=1200"}
     ]
   },
   {
     "id": 6,
     "briefTitle": "Combat Robotics at RoboSoc",
     "longTitle": "RoboSoc's Robot Fighting League (RFL)",
-    "briefDescription": "",
-    "longDescription": "",
-    "imageSrc": "meltybrain.jpg",
-    "gallery": [
-        "meltybrain.jpg"
+    "briefDescription": "Designing and producing 'battle robots' at antweight to featherweight classes.",
+    "longDescription": [
+      "'Battle Bots' are remote-controlled robots designed purely for combatting others, all enclosed within in a dynamic arena.",
+      "At RoboSoc, I took part in realising multiple robots from conception to a functional system. These ranged from the antweight class (150 g) to featherweight class (13.6 kg).",
+      "One of the biggest projects I took part in is creation of Oreo, a melty-brain robot. With a name derived from their ridiculous design and complexity, this class of robots does not feature a dedicated weapon. Instead, body's inertia is used as an accelerated blunt force tool. Surprisingly effective, these robots are a menace requiring two key components:",
+      "1) A robust body resilient to extreme force shockwaves, and capable of interchangeability or repair of wear and tear.",
+      "2) A powerful drive system capable of full-body rotary acceleration, and a control architecture allowing high-speed braking to translate into lateral motions."
     ],
-    "tags": ["Fusion 360", "STM32", "Silicone forming", "Metal forming", "Altium"],
+    "imageSrc": "rfl.jpg",
+    "gallery": [
+      "rfl.jpg",
+      "rfl2.gif",
+      "rfl3.jpeg",
+      "rfl4.gif",
+      "rfl5.jpg",
+      "rfl6.jpg",
+      "rfl7.jpg",
+      "hackabot3.jpeg"
+    ],
+    "tags": ["Fusion 360", "STM32", "Advanced drives", "Silicone forming", "Metal forming", "Altium"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
-        {"label": "RoboSoc", "url": "https://uom-robosoc.com/"},
-        {"label": "GitHub - Oreo", "url": "https://github.com/BTSC10/Oreo"}
+      {"label": "GitHub: Oreo", "url": "https://github.com/BTSC10/Oreo"},
+      {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"}
     ]
   },
   {
     "id": 5,
-    "briefTitle": "Hack-a-Bot: 2023-2025",
-    "longTitle": "Hack-a-Bot: 2023, 2024, 2025",
-    "briefDescription": "",
-    "longDescription": "",
-    "imageSrc": "hackabot2023.jpg",
-    "gallery": ["hackabot2023.jpg", "rover-open.jpg"],
+    "briefTitle": "Hack-a-Bot: 2023-2024",
+    "longTitle": "Hack-a-Bot: 2023 and 2024",
+    "briefDescription": "Organising and competing in the largest robotics Hackathon in the UK.",
+    "longDescription": [
+      "Hack-a-Bot is RoboSoc's annual hackathon, where hundreds compete across among various challenges within a 24-hour event. The competition is the largest of its kind in the UK, and features industry talks, large sponsors, and prizes for winners. All of this is at no entry cost, and is completely volunteer-run. Meals, resources, merchandise and technical support are all supplied at entry. This event aims to enrich, engage, and inspire anyone interested.",
+      "Thus, this event is a colossal task to realise, with each Hack-a-Bot typically beginning organisation as soon as the last has finished. It requires extensive resource management, risk planning, sponsorship, and volunteer manpower over the entire year. As President of the society in the 2023/2024 year, I held many responsibilities in actualising Hack-a-Bot 2024. I also aided organisation of Hack-a-Bot 2025, though I wasn't able to attend the event.",
+      "I competed in the event in the years of 2023 and 2024:",
+      "- In 2023, I competed in BodgeBots, where groups must use scrap materials and loose components to create light class functional battle bots. These compete in a final tournament series.",
+      "- In 2024, I competed in the creation of small, makeshift 'mars rovers'. These were required to navigate difficult terrain and complete tasks completely through teleoperation - mimicking existing space rovers."
+    ],
+    "imageSrc": "hackabot.jpg",
+    "gallery": [
+      "hackabot.jpg",
+      "rover-open.jpg",
+      "hackabot2.jpeg",
+      "hackabot3.jpeg",
+      "robosoc9.jpeg",
+      "robosoc10.jpeg"
+  ],
     "tags": ["C/C++", "Arduino", "Metal forming"],
+    "quickTags": [
+      "Robotics",
+      "Hardware",
+      "Software",
+      "Community"
+    ],
     "links": [
-        {"label": "RoboSoc", "url": "https://uom-robosoc.com/"},
-        {"label": "Sony 2025 Post", "url": "https://developer.sony.com/posts/hack-a-bot-2025-imx500-powers-24-hour-student-hackathon"},
-        {"label": "Sony 2024 Post", "url": "https://developer.sony.com/posts/24-hours-to-hack-inside-the-3rd-annual-hack-a-bot-at-the-university-of-manchester"}
+      {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"},
+      {"label": "Site: Sony 2025 Post", "url": "https://developer.sony.com/posts/hack-a-bot-2025-imx500-powers-24-hour-student-hackathon"},
+      {"label": "Site: Sony 2024 Post", "url": "https://developer.sony.com/posts/24-hours-to-hack-inside-the-3rd-annual-hack-a-bot-at-the-university-of-manchester"}
+    ]
+  },
+  {
+    "id": 4,
+    "briefTitle": "IB Chemistry HL Exploration",
+    "longTitle": "Exploring the Effect of Temperature on the Electromotive Force (EMF) of a Voltaic cell",
+    "briefDescription": "High school exploration of battery design and thermal properties.",
+    "longDescription": [
+      "In this multi-month-long project, I investigated the underlying chemistry behind solid-state and liquid batteries.",
+      "I created copper-magnesium based batteries and predicted how their chemistry would vary environmental temeprature. I compared expectations with reuslts from self-conducted experiments.",
+      "Experimentation found a linear relationship between EMF voltage and temperature - as hypothesised.",
+      "This relationship seemed to be insignificant at a macroscopic scale under reasonal temperature ranges, and showed little application even to Li-ion counterparts at low-voltages cells. Effects may become notable at high voltage battery packs."
+    ],
+    "imageSrc": "bath.jpg",
+    "gallery": [
+      "bath.jpg",
+      "probes.jpg",
+      "chem-graph.jpg"
+    ],
+    "tags": ["Chemistry", "Metal forming"],
+    "quickTags": [],
+    "links": [
+      {"label": "PDF: Currently Unavailable", "url": ""}
+    ]
+  },
+  {
+    "id": 3,
+    "briefTitle": "CEESA FIRST Challenge 2022",
+    "longTitle": "CEESA FIRST Challenge 2022",
+    "briefDescription": "Created a VEX Robot for an online competition during the Covid-19 pandemic.",
+    "longDescription": [
+      "Produced a wheeled robot capable of performing a variety of tasks in an obstructive environment. Example tasks include rapid pick and place, obsticle navigation, and tower-topping.",
+      "This robot was created using standardised VEX Robotics items, and produced with limited time and resources as a result of the Covid-19 pandemic. Competition was ultimately restricted to online interactions."
+    ],
+    "imageSrc": "water.jpg",
+    "gallery": [
+      "water.jpg",
+      "water2.jpg",
+      "water3.gif"
+    ],
+    "tags": ["Python", "Metal forming"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
+    "links": [
     ]
   },
   {
     "id": 2,
-    "briefTitle": "CEESA FIRST Challenge 2022",
-    "longTitle": "CEESA FIRST Challenge 2022",
-    "briefDescription": "",
-    "longDescription": "",
-    "imageSrc": "water.jpg",
-    "gallery": [
-        "water.jpg"
+    "briefTitle": "Woodworking: Lockers",
+    "longTitle": "Crafting Bespoke Lockers for High School Students",
+    "briefDescription": "Crafting bespoke lockers for students.",
+    "longDescription": [
+      "Conducting a survey of high-school students on their existing lockers, we designed personalised lockers that improved on complaints and added special requests.",
+      "Out of these, we purchased resources and crafted a first iteration of these lockers. In the follwoing year, this project had been passed onto others."
     ],
-    "tags": ["Python", "Metal forming"],
+    "imageSrc": "locker2.jpg",
+    "gallery": [
+      "locker.jpg",
+      "locker2.jpg",
+      "locker3.jpg"
+    ],
+    "tags": ["Woodworking"],
+    "quickTags": [
+      "Community"
+    ],
+    "links": [
+    ]
+  },
+  {
+    "id": 1.5,
+    "briefTitle": "Tanzania 2018/2019",
+    "longTitle": "Tanzania Seeway Expedition 2018/2019",
+    "briefDescription": "A 2-week volunteer mission installing infrastructure in rural region of Arusha.",
+    "longDescription": [
+        "Arusha is a growing region of Tanzania with an expanding population supported by an underdeveloped public infrastructure. Following months of fundraising, select groups travelled to personally aid in Arusha's development.",
+        "- Installed electrical infrastructure within a family home, complete with solar harvesting, storage, and power outlets. Also constructed a smokeless stove for safer and more efficient cooking.",
+        "- Constructed a smokeless stove for safer and more efficient cooking.",
+        "- Expanded the Imbaseni Primary School. This took days of manual brick-and-mortar contruction of new classrooms and mining of boulders which obstructed underground foundations."
+        ],
+    "imageSrc": "tanz1.jpeg",
+    "gallery": [
+      "tanz1.jpeg",
+      "tanz2.jpg",
+      "tanz3.jpeg",
+      "tanz4.jpeg"
+    ],
+    "tags": [],
+    "quickTags": [
+      "Hardware",
+      "Community"
+    ],
     "links": [
     ]
   },
@@ -106,11 +304,12 @@
     "id": 1,
     "briefTitle": "MIT Bottle Hack Challenge",
     "longTitle": "MIT Bottle Hack Challenge",
-    "briefDescription": "1st place finish at",
-    "longDescription": "",
+    "briefDescription": "A personal favourite.",
+    "longDescription": "Ask me.",
     "imageSrc": "https://placehold.co/600x400/e2e8f0/475569?text=...",
     "gallery": [],
     "tags": [],
+    "quickTags": ["Hardware"],
     "links": [
     ]
   }
