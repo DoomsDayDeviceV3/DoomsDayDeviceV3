@@ -114,7 +114,6 @@
                 const allTagsGrid = document.getElementById('all-tags-grid');
                 const quickTagsContainer = document.getElementById('quick-tags');
                 
-                // CONFIGURATION: Define your permanent tags here
                 const QUICK_TAG_LIST = ["Robotics", "Hardware", "Software"]; 
                 
                 // Toggle the "All Tags" div visibility
@@ -142,8 +141,28 @@
                     .then(response => response.json())
                     .then(data => {
                         allProjects = data;
-                        populateTagMenu(allProjects); 
-                        renderProjects(allProjects); 
+                        
+                        // PAGE CHECK: Are we on the "All Projects" page?
+                        if (searchInput && quickTagsContainer) {
+                            populateTagMenu(allProjects);
+                            renderProjects(allProjects); 
+
+                            // --- NEW: Deep Linking Check ---
+                            // Check if URL has ?id=some-id
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const projectIdFromUrl = urlParams.get('id');
+
+                            if (projectIdFromUrl) {
+                                // Find the project with the matching string ID
+                                // Note: Ensure your JSON IDs are strings, or use loose equality (==) if they are numbers
+                                const targetProject = allProjects.find(p => String(p.id) === projectIdFromUrl);
+                                
+                                // If found, open it immediately
+                                if (targetProject) {
+                                    openModal(targetProject);
+                                }
+                            }
+                        }
                     })
                     .catch(error => console.error('Error loading projects:', error));
 
@@ -302,6 +321,14 @@
                 }
 
                 function openModal(project) {
+                    if (!modalOverlay) return;
+                    
+                    // Adds ?id=projectID to the URL so the link can be copied/shared
+                    const newUrl = `${window.location.pathname}?id=${project.id}`;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+
+                    modalMainTitle.textContent = project.title;
+                    
                     // 1. Populate Text
                     modalMainTitle.textContent = project.longTitle;
                     modalSubTitle.textContent = project.briefTitle;
@@ -368,7 +395,10 @@
 
                 function closeModal() {
                     modalOverlay.classList.remove('active');
-                    document.body.style.overflow = 'auto'; // Restore background scrolling
+                    document.body.style.overflow = 'auto';
+
+                    // Removes the ?id=... parameter, reverting to the clean URL
+                    window.history.pushState({}, '', window.location.pathname);
                 }
 
                 // Close Listeners

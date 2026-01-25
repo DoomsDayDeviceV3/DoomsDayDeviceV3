@@ -1,6 +1,6 @@
 [
   {
-    "id": 10,
+    "id": "juggling",
     "briefTitle": "MPC Humanoid Juggling",
     "longTitle": "Underactuated Juggling with MPC on Unitree G1",
     "briefDescription": "Underactuated control of a humanoid via MPC and Energy Shaping.",
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": 9,
+    "id": "vla",
     "briefTitle": "Analysis of VLAs",
     "longTitle": "Unveiling the Feature Geometry of Robot Foundation Models via Nyström NCut",
     "briefDescription": "Unveiling the feature geometry of robot foundation models via Nyström NCut.",
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": "brace",
     "briefTitle": "Proof-of-concept RET Brace",
     "longTitle": "Proof-of-concept RET Brace",
     "briefDescription": "",
@@ -73,7 +73,8 @@
         "brace7.jpg",
         "brace8.jpg",
         "brace9.jpg",
-        "brace10.jpg"
+        "brace10.jpg",
+        "brace11.jpg"
     ],
     "tags": ["C/C++", "Python", "Assembly", "Cypress PSoC", "MATLAB", "Simulink", "Fusion 360", "3D printing", "Advanced drives", "HDPE plastic forming", "Metal forming"],
     "quickTags": ["Robotics", "Hardware", "Software"],
@@ -83,7 +84,7 @@
     ]
   },
   {
-    "id": 5.5,
+    "id": "robosoc",
     "briefTitle": "RoboSoc - President",
     "longTitle": "Head Chairmanship of UoM RoboSoc 2023/2024",
     "briefDescription": "Leadership of a prominent robotics group teaching at all levels and hosting major events year-round.",
@@ -121,7 +122,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": "buggy",
     "briefTitle": "Competitive Line-following Buggy",
     "longTitle": "Competitive Robot for Line Following of Difficult Track and Conditions",
     "briefDescription": "Production of a line-following robot for difficult terrain using barebones tools.",
@@ -146,7 +147,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": "rfl",
     "briefTitle": "Combat Robotics at RoboSoc",
     "longTitle": "RoboSoc's Robot Fighting League (RFL)",
     "briefDescription": "Designing and producing 'battle robots' at antweight to featherweight classes.",
@@ -176,7 +177,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": "hackabot",
     "briefTitle": "Hack-a-Bot: 2023-2024",
     "longTitle": "Hack-a-Bot: 2023 and 2024",
     "briefDescription": "Organising and competing in the largest robotics Hackathon in the UK.",
@@ -210,7 +211,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": "emf",
     "briefTitle": "IB Chemistry HL Exploration",
     "longTitle": "Exploring the Effect of Temperature on the Electromotive Force (EMF) of a Voltaic cell",
     "briefDescription": "High school exploration of battery design and thermal properties.",
@@ -233,7 +234,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": "first",
     "briefTitle": "CEESA FIRST Challenge 2022",
     "longTitle": "CEESA FIRST Challenge 2022",
     "briefDescription": "Created a VEX Robot for an online competition during the Covid-19 pandemic.",
@@ -253,7 +254,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": "lockers",
     "briefTitle": "Woodworking: Lockers",
     "longTitle": "Crafting Bespoke Lockers for High School Students",
     "briefDescription": "Crafting bespoke lockers for students.",
@@ -275,7 +276,7 @@
     ]
   },
   {
-    "id": 1.5,
+    "id": "tanzania",
     "briefTitle": "Tanzania 2018/2019",
     "longTitle": "Tanzania Seeway Expedition 2018/2019",
     "briefDescription": "A 2-week volunteer mission installing infrastructure in rural region of Arusha.",
@@ -301,7 +302,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": "mit",
     "briefTitle": "MIT Bottle Hack Challenge",
     "longTitle": "MIT Bottle Hack Challenge",
     "briefDescription": "A personal favourite.",
