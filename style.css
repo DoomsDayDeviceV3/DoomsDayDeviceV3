@@ -40,7 +40,7 @@ img { max-width: 100%; display: block; }
 
 .hr-frame {
 	border: none;
-	height: 1px;
+	height: 1.2px;
 	width: 90%;
 	background-color: #343436;
 	margin: 0.5rem auto 0.5rem;
@@ -371,6 +371,7 @@ h2 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
+	padding: 1rem;
 }
 
 /* Search Bar Styling */
