@@ -349,19 +349,19 @@ footer {
 section {
 	/* padding: 2rem 2rem; */
 	max-width: 1200px;
-	margin: 3rem auto;
+	margin: 2rem auto;
 }
 
 h1 {
 	font-size: 2rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	text-align: center;
 	color: var(--secondary-colour);
 }
 
 h2 {
 	font-size: 2rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	text-align: center;
 	color: var(--secondary-colour);
 }
