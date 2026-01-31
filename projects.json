@@ -1,5 +1,52 @@
 [
   {
+    "id": "nanorobotics",
+    "briefTitle": "Research: Nanorobotics",
+    "longTitle": "Nanorobotics Research with Marc Miskin Lab",
+    "briefDescription": "Hardware design, fabrication, and software for truly pioneering nanorobots.",
+    "longDescription": [
+      "Custom hardware design, fabrication, and systems software for truly pioneering robots at the nanoscale.",
+      "Ask me directly."
+    ],
+    "imageSrc": "nanorobotics.jpg",
+    "gallery": [
+        "nanorobotics.jpg"
+    ],
+    "tags": ["Nanofabrication", "Python", "C/C++"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
+    "links": [
+    ],
+    "featured": true
+  },
+  {
+    "id": "vla",
+    "briefTitle": "Research: Analysis of VLAs",
+    "longTitle": "Research unveiling the Feature Geometry of Robot Foundation Models via Nyström NCut",
+    "briefDescription": "Unveiling the feature geometry of robot foundation models via Nyström NCut.",
+    "longDescription": [
+      "Vision-Language-Action (VLA) models have emerged as powerful robot foundation models, yet their internal representations remain largely opaque and difficult for humans to interpret. This project applied Nyström Normalized Cuts to visualize and analyze feature geometry across hidden layers of various VLAs, revealing how these models process multimodal inputs during manipulation tasks.",
+      "Our analysis uncovers strong object-centric semantic clustering and sensitivity to failure indicators, but also exposes critical limitations in spatial reasoning and language grounding. Through controlled experiments on pi0.5 and OpenVLA, we demonstrate that visual features dominate over language by a factor of 10×, and that spatial information fails to generalize despite perfect training-set memorization.",
+      "These findings provide actionable insights for debugging and improving robot foundation models."
+    ],
+    "imageSrc": "VLA.jpg",
+    "gallery": [
+      "VLA.jpg",
+      "VLA2.gif",
+      "VLA3.gif",
+      "VLA4.jpg",
+      "VLA5.jpg",
+      "VLA6.jpg"
+    ],
+    "tags": ["Python"],
+    "quickTags": ["Robotics", "Software"],
+    "links": [
+      {"label": "GitHub: VLAs", "url": "https://github.com/NZ-Liam-Zhong/Final_Project_On_Jianbo_Class"},
+      {"label": "PDF: Currently Unavailable", "url": ""},
+      {"label": "Site: Nyström NCut", "url": "https://ncut-pytorch.readthedocs.io/en/latest/"}
+    ],
+    "featured": true
+  },
+  {
     "id": "juggling",
     "briefTitle": "MPC Humanoid Juggling",
     "longTitle": "Underactuated Juggling with MPC on Unitree G1",
@@ -22,34 +69,8 @@
     "links": [
       {"label": "PDF: Report", "url": "juggle_report.pdf"},
       {"label": "PDF: Poster", "url": "juggle_poster.pdf"}
-    ]
-  },
-  {
-    "id": "vla",
-    "briefTitle": "Analysis of VLAs",
-    "longTitle": "Unveiling the Feature Geometry of Robot Foundation Models via Nyström NCut",
-    "briefDescription": "Unveiling the feature geometry of robot foundation models via Nyström NCut.",
-    "longDescription": [
-      "Vision-Language-Action (VLA) models have emerged as powerful robot foundation models, yet their internal representations remain largely opaque and difficult for humans to interpret. This project applied Nyström Normalized Cuts to visualize and analyze feature geometry across hidden layers of various VLAs, revealing how these models process multimodal inputs during manipulation tasks.",
-      "Our analysis uncovers strong object-centric semantic clustering and sensitivity to failure indicators, but also exposes critical limitations in spatial reasoning and language grounding. Through controlled experiments on pi0.5 and OpenVLA, we demonstrate that visual features dominate over language by a factor of 10×, and that spatial information fails to generalize despite perfect training-set memorization.",
-      "These findings provide actionable insights for debugging and improving robot foundation models."
     ],
-    "imageSrc": "VLA.jpg",
-    "gallery": [
-      "VLA.jpg",
-      "VLA2.gif",
-      "VLA3.gif",
-      "VLA4.jpg",
-      "VLA5.jpg",
-      "VLA6.jpg"
-    ],
-    "tags": ["Python"],
-    "quickTags": ["Robotics", "Software"],
-    "links": [
-      {"label": "GitHub: VLAs", "url": "https://github.com/NZ-Liam-Zhong/Final_Project_On_Jianbo_Class"},
-      {"label": "PDF: Currently Unavailable", "url": ""},
-      {"label": "Site: Nyström NCut", "url": "https://ncut-pytorch.readthedocs.io/en/latest/"}
-    ]
+    "featured": false
   },
   {
     "id": "brace",
@@ -81,7 +102,8 @@
     "links": [
       {"label": "GitHub: RET-Brace", "url": "https://github.com/DoomsDayDeviceV3/RET-Brace"},
       {"label": "PDF: Currently Unavailable", "url": ""}
-    ]
+    ],
+    "featured": true
   },
   {
     "id": "robosoc",
@@ -119,7 +141,8 @@
     ],
     "links": [
       {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"}
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "buggy",
@@ -144,7 +167,8 @@
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
       {"label": "YouTube: 2022 Race Day (example)", "url": "https://youtu.be/H5MgimIWXMo?si=YVHBcq2KWmo6Vfjc&t=1200"}
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "rfl",
@@ -174,7 +198,8 @@
     "links": [
       {"label": "GitHub: Oreo", "url": "https://github.com/BTSC10/Oreo"},
       {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"}
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "hackabot",
@@ -208,7 +233,8 @@
       {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"},
       {"label": "Site: Sony 2025 Post", "url": "https://developer.sony.com/posts/hack-a-bot-2025-imx500-powers-24-hour-student-hackathon"},
       {"label": "Site: Sony 2024 Post", "url": "https://developer.sony.com/posts/24-hours-to-hack-inside-the-3rd-annual-hack-a-bot-at-the-university-of-manchester"}
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "emf",
@@ -231,7 +257,8 @@
     "quickTags": [],
     "links": [
       {"label": "PDF: Currently Unavailable", "url": ""}
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "first",
@@ -251,7 +278,8 @@
     "tags": ["Python", "Metal forming"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "lockers",
@@ -273,7 +301,8 @@
       "Community"
     ],
     "links": [
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "tanzania",
@@ -299,19 +328,21 @@
       "Community"
     ],
     "links": [
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "mit",
     "briefTitle": "MIT Bottle Hack Challenge",
     "longTitle": "MIT Bottle Hack Challenge",
     "briefDescription": "A personal favourite.",
-    "longDescription": "Ask me.",
+    "longDescription": "Ask me directly.",
     "imageSrc": "https://placehold.co/600x400/e2e8f0/475569?text=...",
     "gallery": [],
     "tags": [],
     "quickTags": ["Hardware"],
     "links": [
-    ]
+    ],
+    "featured": false
   }
 ]

@@ -71,7 +71,7 @@
         </section>
 
         <section id="projects">
-            <h2 style="text-align: center; color: var(--secondary-colour);">My Recent Projects</h2>
+            <h2 style="text-align: center; color: var(--secondary-colour);">Featured Projects</h2>
 
             <div class="grid" id="projects-container">
             </div>
@@ -89,7 +89,8 @@
                 fetch('projects.json')
                     .then(response => response.json())
                     .then(projects => {
-                        const visibleProjects = projects.slice(0, MAX_CARDS);
+                        const featuredProjects = projects.filter(project => project.featured === true);
+                        const visibleProjects = featuredProjects.slice(0, MAX_CARDS);
 
                         // Render the limited cards
                         visibleProjects.forEach(project => {
@@ -114,9 +115,9 @@
 
                         // Check if need a "View More" button
                         // If total projects > limit, show button
-                        if (projects.length > MAX_CARDS) {
+                        if (projects.length > visibleProjects.length) {
                             const viewMoreLink = document.createElement('a');
-                            viewMoreLink.href = 'projects.html'; // Path to your full list page
+                            viewMoreLink.href = 'projects.html'; 
                             viewMoreLink.className = 'view-more-btn';
                             viewMoreLink.textContent = 'Details and more...';
 
