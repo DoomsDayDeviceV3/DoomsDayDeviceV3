@@ -245,7 +245,7 @@
       "In this multi-month-long project, I investigated the underlying chemistry behind solid-state and liquid batteries.",
       "I created copper-magnesium based batteries and predicted how their chemistry would vary environmental temeprature. I compared expectations with reuslts from self-conducted experiments.",
       "Experimentation found a linear relationship between EMF voltage and temperature - as hypothesised.",
-      "This relationship seemed to be insignificant at a macroscopic scale under reasonal temperature ranges, and showed little application even to Li-ion counterparts at low-voltages cells. Effects may become notable at high voltage battery packs."
+      "This relationship seemed to be insignificant at a macroscopic scale under reasonable operating temperature ranges, and showed little application even to Li-ion counterparts at low-voltages cells. Effects may become notable at high voltage battery packs."
     ],
     "imageSrc": "bath.jpg",
     "gallery": [
