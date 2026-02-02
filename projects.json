@@ -193,7 +193,7 @@
       "rfl7.jpg",
       "hackabot3.jpeg"
     ],
-    "tags": ["Fusion 360", "STM32", "Advanced drives", "Silicone forming", "Metal forming", "Altium"],
+    "tags": ["Fusion 360", "STM32", "Advanced drives", "HDPE plastic forming", "Silicone forming", "Metal forming", "Altium"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
       {"label": "GitHub: Oreo", "url": "https://github.com/BTSC10/Oreo"},
