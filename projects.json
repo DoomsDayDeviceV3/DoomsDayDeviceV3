@@ -1,5 +1,23 @@
 [
   {
+    "id": "DS",
+    "briefTitle": "Imitation-learnt Control with Adaptability between Robots",
+    "longTitle": "Safety-gauranteed Imitation Learning for Object-catching Actions with Adaptability to any Robotic Arm of the Same Configuration.",
+    "briefDescription": "Under development...",
+    "longDescription": [
+      ""
+    ],
+    "imageSrc": "DS.jpg",
+    "gallery": [
+        ""
+    ],
+    "tags": ["IssacSim", "Hardware", "Python", "MATLAB"],
+    "quickTags": ["Robotics", "Hardware", "Software"],
+    "links": [
+    ],
+    "featured": false
+  },
+  {
     "id": "nanorobotics",
     "briefTitle": "Research: Nanorobotics",
     "longTitle": "Nanorobotics Research with Marc Miskin Lab",
@@ -112,7 +130,7 @@
     "briefDescription": "Leadership of a prominent robotics group teaching at all levels and hosting major events year-round.",
     "longDescription": [
       "RoboSoc is a student-led society which strives to teach robotics to anyone interested, and make it enjoyable throughout. Funded by The University of Manchester, it is free for all and teaches hands-on through a variety of projects. RoboSoc also hosts major events year-round, including the 24-hour Hack-a-Bot - the largest UK robotics hackathon.",
-      "As head of the socity in the 2023/24 year, I had a monumental magnitude of responsibilities and commitments to myself, my Committee, and my members. I dedicated myself to this role for an entire year - a true honor and pleasure.",
+      "As head of the society in the 2023/24 year, I had a monumental magnitude of responsibilities and commitments to myself, my Committee, and my members. I dedicated myself to this role for an entire year - a true honor and pleasure.",
       "Under my term, the society offered 7 projects, including: a robot orchestra, a fighting league, a drone project, and a hexapod swarm. I was responsible for overseeing, guiding, and funding all of these, required proficiency in a wide array of applied technical expertise and managerial skills.",
       "I was also responsible for care of our membership (over 300 strong). This meant serious Risk Assessments, workshop oversight, and emergency leadership. It also meant personal care of the member's social experience and learning, and striving to provide the most enriching experience possible.",
       "On the managerial side, I also drove growth and new endevours. I took responsibility over sponsorships and industry connections. I also regularly liased with the University President, researchers, and the Engineering Vice Dean of Education."
