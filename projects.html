@@ -333,7 +333,7 @@ title: Projects
                     modalLinks.appendChild(a);
                 });
             } else {
-                modalLinks.innerHTML = '<span style="color: #64748b; font-style: italic;">No gallery images available.</span>';
+                modalLinks.innerHTML = '<span style="color: #64748b; font-style: italic;">No links available.</span>';
             }
 
             // 3. Populate Tags (Reuse CSS class)
@@ -363,6 +363,9 @@ title: Projects
                     link.className = 'gallery-link';
                     link.title = "Click to view full image"; // Tooltip hint
 
+                    // THE TRACKER: This logs an event like "viewed-image-horse.jpg"
+                    link.setAttribute('data-goatcounter-click', 'viewed-image-' + finalUrl);
+
                     // Create Image Tag
                     const img = document.createElement('img');
                     img.src = finalUrl;
@@ -376,7 +379,19 @@ title: Projects
                 modalGallery.innerHTML = '<p style="color: #64748b; font-style: italic;">No gallery images available.</p>';
             }
 
-            // 5. Show Modal
+            // 5. Track Opening of Modal
+            if (window.goatcounter && window.goatcounter.count) {
+                // Format the title so it looks clean in the dashboard (e.g., "My Project" -> "my-project")
+                let cleanName = project.id.replace(/\s+/g, '-').toLowerCase();
+
+                window.goatcounter.count({
+                    path:  'opened-card-' + cleanName,
+                    title: 'Viewed Card: ' + project.id,
+                    event: true
+                });
+            }
+
+            // 6. Show Modal
             modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }

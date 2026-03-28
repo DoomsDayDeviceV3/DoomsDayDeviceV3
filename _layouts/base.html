@@ -21,6 +21,16 @@
     <script>
     window.siteBaseUrl = "{{ '' | relative_url }}";
     </script>
+
+    {% if jekyll.environment == "production" %}
+    <script>
+        // Gatekeeper: Only run GoatCounter if the domain matches exactly
+        if (window.location.hostname !== "doomsdaydevicev3.github.io") {
+            window.goatcounter = { no_onload: true };
+        }
+    </script>
+    <script data-goatcounter="https://ily.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {% endif %}
 </head>
 
 <body>
