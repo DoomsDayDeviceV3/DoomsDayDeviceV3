@@ -107,7 +107,7 @@ title: Projects
         let activeTags = new Set();
 
         // Fetch Data
-        fetch('/WebAssets/projects.json')
+        fetch(window.siteBaseUrl + "/WebAssets/projects.json")
             .then(response => response.json())
             .then(data => {
                 allProjects = data;
