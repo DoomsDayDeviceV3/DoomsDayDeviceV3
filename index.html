@@ -46,7 +46,7 @@ title: Home
         const MAX_CARDS = 3;
 
         // Fetch the data
-        fetch("{{ '/WebAssets/projects.json' | relative_url }}")
+        fetch(window.siteBaseUrl + "/WebAssets/info.json")
             .then(response => response.json())
             .then(projects => {
                 const featuredProjects = projects.filter(project => project.featured === true);
