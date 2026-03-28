@@ -135,6 +135,9 @@ header::after {
 .nav-links {
     display: flex;
     gap: 2rem;
+    list-style: none; /* Removes invisible bullet points */
+    margin: 0;        /* Removes default browser margin */
+    padding: 0;       /* KILLS THE GHOST PADDING */
 }
 .nav-links a:hover {
     color: var(--primary-colour);
