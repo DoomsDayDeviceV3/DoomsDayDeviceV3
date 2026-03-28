@@ -279,12 +279,12 @@ title: Projects
                     .join('');
 
                 let finalUrl = "";
-                if (imgUrl.startsWith("http")) {
+                if (project.imageSrc.startsWith("http")) {
                     // It's an external link (like placeholder.co), use it exactly as-is
-                    finalUrl = imgUrl;
+                    finalUrl = project.imageSrc;
                 } else {
                     // It's a local file (like horse.jpg), glue the Jekyll path together
-                    finalUrl = window.siteBaseUrl + '/Media/' + imgUrl;
+                    finalUrl = window.siteBaseUrl + '/Media/' + project.imageSrc;
                 }
 
                 card.innerHTML = `
