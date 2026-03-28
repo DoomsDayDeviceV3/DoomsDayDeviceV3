@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/IRP6.jpg">
+    <meta name="twitter:image" content="https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/IRP6.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IR Portfolio">
+    <title>IRPortfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tags.css">
+    
+    <link rel="icon" href="IRP5.png" sizes="64x64" type="image/png">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="warning-banner">« Notice: Site is temporarily underdergoing construction and may appear broken or
+        incomplete. »</div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">IRPortfolio</a></div>
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hr-frame-div">
+            <hr class="hr-frame">
+        </div>
+
+    </header>
+
+    <main>
+        <!-- 
+        <section>
+            <h1>Hi, I'm [Your Name]</h1>
+            <p>Building digital products, brands, and experiences.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </section>
+         -->
+
+        <section id="about" style="max-width: 800px; margin: 0 auto; padding: 0 1vw; line-height: 1.6;">
+            <h2 style="text-align: center; margin-bottom: 2vh;">About Me</h2>
+
+            <p style="text-align: center; font-size: 20px; max-width: 600px; margin: 0 auto;">
+                I'm an engineer and researcher designing, building, and analyzing intelligent robotic systems.
+                I specialize in multidisciplinary development, integrating advanced control, embedded systems, mechatronics, and human-robot interaction.
+            </p>
+
+            <div style="padding-top: 2vh; font-size: 17px; font-weight: lighter;">
+                <p style="margin-bottom: 2vh;">
+                    I care about how systems actually behave in real environments, beyond descriptions on paper. I develop robust, physical machines and look for elegant solutions.
+                </p>
+                <p style="margin-bottom: 2vh;">
+                    My work spans both theory and application across a wide range of disciplines, from underactuated
+                    humanoid control to wearables for healthcare.
+                </p>
+                <p style="margin-bottom: 2vh;">
+                    Currently, I am researching robot foundation models, as well as the control and design of world-leading nanorobots.
+                </p>
+                <p style="margin-top: 4vh; margin-bottom: 0vh;">
+                    Beyond technical design, I have experience leading robotics initiatives, guiding engineering teams, and organizing large-scale projects.
+                </p>
+            </div>
+
+            
+        </section>
+
+        <section id="projects">
+            <h2 style="text-align: center; color: var(--secondary-colour);">Featured Projects</h2>
+
+            <div class="grid" id="projects-container">
+            </div>
+
+            <div id="view-more-container" class="view-more-container"></div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('projects-container');
+                const viewMoreContainer = document.getElementById('view-more-container');
+                const MAX_CARDS = 3;
+
+                // Fetch the data
+                fetch('projects.json')
+                    .then(response => response.json())
+                    .then(projects => {
+                        const featuredProjects = projects.filter(project => project.featured === true);
+                        const visibleProjects = featuredProjects.slice(0, MAX_CARDS);
+
+                        // Render the limited cards
+                        visibleProjects.forEach(project => {
+                            const card = document.createElement('div');
+                            card.classList.add('card');
+                            card.dataset.longDescription = project.longDescription;
+
+                            const tagsHtml = project.tags
+                                .map(tag => `<span class="tag">${tag}</span>`)
+                                .join('');
+
+                            card.innerHTML = `
+                                <img src="${project.imageSrc}" alt="${project.briefTitle}" class="card-image">
+                                <div class="card-content">
+                                    <h3>${project.briefTitle}</h3>
+                                    <p>${project.briefDescription}</p>
+                                    <div class="tags-container">${tagsHtml}</div>
+                                </div>
+                            `;
+                            container.appendChild(card);
+                        });
+
+                        // Check if need a "View More" button
+                        // If total projects > limit, show button
+                        if (projects.length > visibleProjects.length) {
+                            const viewMoreLink = document.createElement('a');
+                            viewMoreLink.href = 'projects.html'; 
+                            viewMoreLink.className = 'view-more-btn';
+                            viewMoreLink.textContent = 'Details and more...';
+
+                            viewMoreContainer.appendChild(viewMoreLink);
+                        }
+                    })
+                    .catch(error => console.error('Error loading projects:', error));
+            });
+        </script>
+
+    </main>
+
+    <div class="hr-frame-div-down">
+        <hr class="hr-frame">
+    </div>
+
+    <footer id="footer">
+        <p>© <span id="year"></span> I.R. | All rights reserved.</p>
+        <p>
+            <a href="https://github.com/DoomsDayDeviceV3">GitHub</a> |
+            <a href="https://www.linkedin.com/in/ily-r/">LinkedIn</a> |
+            <a href="mailto:ilyr@seas.upenn.edu">Email Me</a>
+        </p>
+    </footer>
+
+    <script>
+        // Auto-update the year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+# Site Settings
+title: IRPortfolio
+description: IR Portfolio
+url: "https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/"
+baseurl: ""
+
+# Build Settings
+markdown: kramdown
+theme: minima # default Jekyll theme
+
+# Exclude these files from the final build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+  - _Backup/

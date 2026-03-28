@@ -1,457 +1,391 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/IRP6.jpg">
-    <meta name="twitter:image" content="https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/IRP6.jpg">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IR Portfolio">
-    <title>IRPortfolio</title>
+---
+layout: base
+title: Projects
+---
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tags.css">
+<section id="all-projects">
+    <h2 style="text-align: center; color: var(--secondary-colour); margin-top: 2vh;">Project Archive</h2>
     
-    <link rel="icon" href="IRP5.png" sizes="64x64" type="image/png">
-    <style>
-    </style>
-</head>
-<body>
-    <div class="warning-banner">« Notice: Site is temporarily underdergoing construction and may appear broken or incomplete. »</div>
-    
-    <header>
-        <nav class="navbar">
-            <div class="logo"><a href="index.html">IRPortfolio</a></div>
-            <div class="menu-toggle" id="mobile-menu">☰</div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hr-frame-div">
-            <hr class="hr-frame">
+    <div class="controls-wrapper" style="flex-direction: column; align-items: flex-start;">
+
+        <div class="search-row">
+            <input 
+                type="text" 
+                id="search-input" 
+                class="search-input" 
+                placeholder="Search projects..."
+            >
+            <button class="filter-toggle-btn" id="filter-btn">
+                Skills <span class="arrow">▼</span>
+            </button>
         </div>
 
-    </header>
-
-    <main>
-
-        <section id="all-projects">
-            <h2 style="text-align: center; color: var(--secondary-colour); margin-top: 2vh;">Project Archive</h2>
-            
-            <div class="controls-wrapper" style="flex-direction: column; align-items: flex-start;">
-    
-                <div class="search-row">
-                    <input 
-                        type="text" 
-                        id="search-input" 
-                        class="search-input" 
-                        placeholder="Search projects..."
-                    >
-                    <button class="filter-toggle-btn" id="filter-btn">
-                        Skills <span class="arrow">▼</span>
-                    </button>
-                </div>
-
-                <div class="quick-tags-container" id="quick-tags">
-                    </div>
-
-                <div class="all-tags-container" id="all-tags-grid">
-                    </div>
-
+        <div class="quick-tags-container" id="quick-tags">
             </div>
 
-            <div class="grid" id="projects-container">
-                </div>
-        </section>
-
-        <div class="modal-overlay" id="modal-overlay">
-            <div class="modal-container">
-                <button class="close-modal-btn" id="close-btn">&times;</button>
-                
-                <div class="modal-header">
-                    <h2 id="modal-main-title">Project Title</h2>
-                </div>
-
-                <div class="modal-body">
-                    
-                    <div class="modal-split-section">
-                        <div class="modal-left-col">
-                            <div class="modal-meta-title" id="modal-sub-title">Project Title</div>
-                            
-                            <h4>Resources</h4>
-                            <div class="modal-links" id="modal-links">
-                                </div>
-
-                            <h4>Tags</h4>
-                            <div class="tags-container" id="modal-tags">
-                                </div>
-                        </div>
-
-                        <div class="modal-right-col">
-                            <h4>About this project</h4>
-                            <p class="modal-description" id="modal-desc">
-                                </p>
-                        </div>
-                    </div>
-
-                    <div class="modal-gallery-section">
-                        <h3>Gallery</h3>
-                        <div class="gallery-grid" id="modal-gallery">
-                            </div>
-                    </div>
-
-                </div>
+        <div class="all-tags-container" id="all-tags-grid">
             </div>
-        </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const container = document.getElementById('projects-container');
-                const searchInput = document.getElementById('search-input');
-                const filterWrapper = document.getElementById('filter-wrapper');
-                // const filterBtn = document.getElementById('filter-btn');
-                const tagsGrid = document.getElementById('tags-grid');
-
-                const filterBtn = document.getElementById('filter-btn');
-                const allTagsGrid = document.getElementById('all-tags-grid');
-                const quickTagsContainer = document.getElementById('quick-tags');
-                
-                const QUICK_TAG_LIST = ["Robotics", "Hardware", "Software"]; 
-                
-                // Toggle the "All Tags" div visibility
-                filterBtn.addEventListener('click', () => {
-                    allTagsGrid.classList.toggle('open');
-                });
-
-                
-                const modalOverlay = document.getElementById('modal-overlay');
-                const closeBtn = document.getElementById('close-btn');
-
-                // Modal Elements
-                const modalMainTitle = document.getElementById('modal-main-title');
-                const modalSubTitle = document.getElementById('modal-sub-title');
-                const modalLinks = document.getElementById('modal-links');
-                const modalTags = document.getElementById('modal-tags');
-                const modalDesc = document.getElementById('modal-desc');
-                const modalGallery = document.getElementById('modal-gallery');
-
-                let allProjects = [];
-                let activeTags = new Set();
-
-                // Fetch Data
-                fetch('projects.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        allProjects = data;
-                        
-                        // PAGE CHECK: Are we on the "All Projects" page?
-                        if (searchInput && quickTagsContainer) {
-                            populateTagMenu(allProjects);
-                            renderProjects(allProjects); 
-
-                            // --- NEW: Deep Linking Check ---
-                            // Check if URL has ?id=some-id
-                            const urlParams = new URLSearchParams(window.location.search);
-                            const projectIdFromUrl = urlParams.get('id');
-
-                            if (projectIdFromUrl) {
-                                // Find the project with the matching string ID
-                                // Note: Ensure your JSON IDs are strings, or use loose equality (==) if they are numbers
-                                const targetProject = allProjects.find(p => String(p.id) === projectIdFromUrl);
-                                
-                                // If found, open it immediately
-                                if (targetProject) {
-                                    openModal(targetProject);
-                                }
-                            }
-                        }
-                    })
-                    .catch(error => console.error('Error loading projects:', error));
-
-                // Toggle Filter Menu Open/Close
-                filterBtn.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent closing immediately
-                    filterWrapper.classList.toggle('open');
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!filterWrapper.contains(e.target)) {
-                        filterWrapper.classList.remove('open');
-                    }
-                });
-
-                // Search Input Listener
-                searchInput.addEventListener('input', filterProjects);
-
-                function filterProjects() {
-                    const searchTerm = searchInput.value.toLowerCase();
-
-                    const filteredProjects = allProjects.filter(project => {
-                        
-                        // Safe access to arrays (default to empty if missing)
-                        const pTags = project.tags || [];
-                        const pQuickTags = project.quickTags || [];
-
-                        // A. Check Text Match (Now includes quickTags)
-                        const searchableText = `
-                            ${project.briefTitle} 
-                            ${project.briefDescription} 
-                            ${project.longDescription} 
-                            ${pTags.join(' ')}
-                            ${pQuickTags.join(' ')}
-                        `.toLowerCase();
-                        
-                        const matchesText = searchableText.includes(searchTerm);
-
-                        // B. Check Tag Selection
-                        // A project matches if it contains ALL selected activeTags 
-                        // in EITHER its 'tags' array OR its 'quickTags' array.
-                        const matchesTags = activeTags.size === 0 || 
-                            Array.from(activeTags).every(selectedTag => 
-                                pTags.includes(selectedTag) || pQuickTags.includes(selectedTag)
-                            );
-
-                        return matchesText && matchesTags;
-                    });
-
-                    renderProjects(filteredProjects);
-                }
-
-                function populateTagMenu(projects) {
-                    const quickTagsSet = new Set();
-                    const allTagsSet = new Set();
-
-                    // Extract tags from their respective arrays
-                    projects.forEach(project => {
-                        if (project.quickTags) {
-                            project.quickTags.forEach(t => quickTagsSet.add(t));
-                        }
-                        if (project.tags) {
-                            project.tags.forEach(t => allTagsSet.add(t));
-                        }
-                    });
-
-                    // Convert to sorted arrays
-                    const uniqueQuickTags = Array.from(quickTagsSet).sort();
-                    const uniqueAllTags = Array.from(allTagsSet).sort();
-
-                    // 1. Render Permanent "Quick" Tags (Sourced from quickTags)
-                    uniqueQuickTags.forEach(tag => {
-                        createTagButton(tag, quickTagsContainer);
-                    });
-
-                    // 2. Render "All Tags" (Sourced from tags)
-                    uniqueAllTags.forEach(tag => {
-                        createTagButton(tag, allTagsGrid);
-                    });
-                }
-
-                // Helper to create the button and attach logic
-                function createTagButton(tag, parentElement) {
-                    const btn = document.createElement('div');
-                    btn.classList.add('tag-option');
-                    btn.textContent = tag;
-                    btn.dataset.tag = tag; // Helper to identify this tag later
-
-                    btn.addEventListener('click', () => {
-                        // Toggle Logic
-                        if (activeTags.has(tag)) {
-                            activeTags.delete(tag);
-                        } else {
-                            activeTags.add(tag);
-                        }
-
-                        // Update Visuals (Syncs both lists)
-                        updateTagVisuals();
-                        
-                        // Run Filter
-                        filterProjects();
-                    });
-
-                    parentElement.appendChild(btn);
-                }
-
-                // New Helper: Syncs visual "active" class across BOTH lists
-                function updateTagVisuals() {
-                    // Find ALL tag buttons (both quick and full list)
-                    const allButtons = document.querySelectorAll('.tag-option');
-                    
-                    allButtons.forEach(btn => {
-                        const tag = btn.dataset.tag;
-                        if (activeTags.has(tag)) {
-                            btn.classList.add('active');
-                        } else {
-                            btn.classList.remove('active');
-                        }
-                    });
-                }
-
-                // Updated Render Function with Click Listener
-                function renderProjects(projectsToRender, isStatic = false) {
-                    container.innerHTML = '';
-
-                    if (projectsToRender.length === 0) {
-                        container.innerHTML = '<div class="no-results">No projects match.</div>';
-                        return;
-                    }
-
-                    projectsToRender.forEach(project => {
-                        const card = document.createElement('div');
-                        card.classList.add('card');
-                        
-                        // ONLY add interactivity if it is NOT a static grid
-                        if (!isStatic) {
-                            card.classList.add('interactive'); // Adds CSS hover effects/pointer
-                            card.addEventListener('click', () => openModal(project));
-                        }
-
-                        const tagsHtml = project.tags
-                            .map(tag => `<span class="tag">${tag}</span>`)
-                            .join('');
-
-                        card.innerHTML = `
-                            <img src="${project.imageSrc}" alt="${project.briefTitle}" class="card-image">
-                            <div class="card-content">
-                                <h3>${project.briefTitle}</h3>
-                                <p>${project.briefDescription}</p>
-                                <div class="tags-container">${tagsHtml}</div>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    });
-                }
-
-                function openModal(project) {
-                    if (!modalOverlay) return;
-                    
-                    // Adds ?id=projectID to the URL so the link can be copied/shared
-                    const newUrl = `${window.location.pathname}?id=${project.id}`;
-                    window.history.pushState({ path: newUrl }, '', newUrl);
-
-                    modalMainTitle.textContent = project.title;
-                    
-                    // 1. Populate Text
-                    modalMainTitle.textContent = project.longTitle;
-                    modalSubTitle.textContent = project.briefTitle;
-                    // Check if it's an array, map to <p> tags, join them, and set HTML
-                    if (Array.isArray(project.longDescription)) {
-                        modalDesc.innerHTML = project.longDescription
-                            .map(paragraph => `<p>${paragraph}</p>`)
-                            .join('');
-                    } else {
-                        // Fallback for old string format
-                        modalDesc.textContent = project.longDescription;
-                    }
-
-                    // 2. Populate Links
-                    modalLinks.innerHTML = '';
-                    if (project.links && project.links.length > 0) {
-                        project.links.forEach(link => {
-                            const a = document.createElement('a');
-                            a.href = link.url;
-                            a.textContent = link.label; // e.g., "Live Demo"
-                            a.className = 'modal-link-item';
-                            a.target = "_blank";
-                            modalLinks.appendChild(a);
-                        });
-                    } else {
-                        modalLinks.innerHTML = '<span>No links available</span>';
-                    }
-
-                    // 3. Populate Tags (Reuse CSS class)
-                    modalTags.innerHTML = project.tags
-                        .map(tag => `<span class="tag">${tag}</span>`)
-                        .join('');
-
-                    // 4. Populate Gallery
-                    modalGallery.innerHTML = '';
-            
-                    if (project.gallery && project.gallery.length > 0) {
-                        project.gallery.forEach(imgUrl => {
-                            // Create Anchor Tag
-                            const link = document.createElement('a');
-                            link.href = imgUrl;
-                            link.target = "_blank";           // Opens in new tab
-                            link.rel = "noopener noreferrer"; // Security best practice
-                            link.className = 'gallery-link';
-                            link.title = "Click to view full image"; // Tooltip hint
-
-                            // Create Image Tag
-                            const img = document.createElement('img');
-                            img.src = imgUrl;
-                            img.className = 'gallery-img';
-                            
-                            // Nest image inside link
-                            link.appendChild(img);
-                            modalGallery.appendChild(link);
-                        });
-                    } else {
-                        modalGallery.innerHTML = '<p style="color: #64748b; font-style: italic;">No gallery images available.</p>';
-                    }
-
-                    // 5. Show Modal
-                    modalOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                }
-
-                function closeModal() {
-                    modalOverlay.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-
-                    // Removes the ?id=... parameter, reverting to the clean URL
-                    window.history.pushState({}, '', window.location.pathname);
-                }
-
-                // Close Listeners
-                closeBtn.addEventListener('click', closeModal);
-                
-                // Close when clicking outside the modal box
-                modalOverlay.addEventListener('click', (e) => {
-                    if (e.target === modalOverlay) {
-                        closeModal();
-                    }
-                });
-                
-                // Close on Escape Key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-                        closeModal();
-                    }
-                });
-            });
-        </script>
-        
-    </main>
-
-    <div class="hr-frame-div-down">
-        <hr class="hr-frame">
     </div>
 
-    <footer id="footer">
-        <p>© <span id="year"></span> I.R. | All rights reserved.</p>
-        <p>
-            <a href="https://github.com/DoomsDayDeviceV3">GitHub</a> | 
-            <a href="https://www.linkedin.com/in/ily-r/">LinkedIn</a> | 
-            <a href="mailto:ilyr@seas.upenn.edu">Email Me</a>
-        </p>
-    </footer>
+    <div class="grid" id="projects-container">
+        </div>
+</section>
 
-    <script>
-        // Auto-update the year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal-btn" id="close-btn">&times;</button>
+        
+        <div class="modal-header">
+            <h2 id="modal-main-title">Project Title</h2>
+        </div>
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
+        <div class="modal-body">
+            
+            <div class="modal-split-section">
+                <div class="modal-left-col">
+                    <div class="modal-meta-title" id="modal-sub-title">Project Title</div>
+                    
+                    <h4>Resources</h4>
+                    <div class="modal-links" id="modal-links">
+                        </div>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+                    <h4>Tags</h4>
+                    <div class="tags-container" id="modal-tags">
+                        </div>
+                </div>
+
+                <div class="modal-right-col">
+                    <h4>About this project</h4>
+                    <p class="modal-description" id="modal-desc">
+                        </p>
+                </div>
+            </div>
+
+            <div class="modal-gallery-section">
+                <h3>Gallery</h3>
+                <div class="gallery-grid" id="modal-gallery">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('projects-container');
+        const searchInput = document.getElementById('search-input');
+        const filterWrapper = document.getElementById('filter-wrapper');
+        // const filterBtn = document.getElementById('filter-btn');
+        const tagsGrid = document.getElementById('tags-grid');
+
+        const filterBtn = document.getElementById('filter-btn');
+        const allTagsGrid = document.getElementById('all-tags-grid');
+        const quickTagsContainer = document.getElementById('quick-tags');
+        
+        const QUICK_TAG_LIST = ["Robotics", "Hardware", "Software"]; 
+        
+        // Toggle the "All Tags" div visibility
+        filterBtn.addEventListener('click', () => {
+            allTagsGrid.classList.toggle('open');
         });
-    </script>
-</body>
-</html>
+
+        
+        const modalOverlay = document.getElementById('modal-overlay');
+        const closeBtn = document.getElementById('close-btn');
+
+        // Modal Elements
+        const modalMainTitle = document.getElementById('modal-main-title');
+        const modalSubTitle = document.getElementById('modal-sub-title');
+        const modalLinks = document.getElementById('modal-links');
+        const modalTags = document.getElementById('modal-tags');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalGallery = document.getElementById('modal-gallery');
+
+        let allProjects = [];
+        let activeTags = new Set();
+
+        // Fetch Data
+        fetch('/WebAssets/projects.json')
+            .then(response => response.json())
+            .then(data => {
+                allProjects = data;
+                
+                // PAGE CHECK: Are we on the "All Projects" page?
+                if (searchInput && quickTagsContainer) {
+                    populateTagMenu(allProjects);
+                    renderProjects(allProjects); 
+
+                    // --- NEW: Deep Linking Check ---
+                    // Check if URL has ?id=some-id
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const projectIdFromUrl = urlParams.get('id');
+
+                    if (projectIdFromUrl) {
+                        // Find the project with the matching string ID
+                        // Note: Ensure your JSON IDs are strings, or use loose equality (==) if they are numbers
+                        const targetProject = allProjects.find(p => String(p.id) === projectIdFromUrl);
+                        
+                        // If found, open it immediately
+                        if (targetProject) {
+                            openModal(targetProject);
+                        }
+                    }
+                }
+            })
+            .catch(error => console.error('Error loading projects:', error));
+
+        // Toggle Filter Menu Open/Close
+        filterBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing immediately
+            filterWrapper.classList.toggle('open');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!filterWrapper.contains(e.target)) {
+                filterWrapper.classList.remove('open');
+            }
+        });
+
+        // Search Input Listener
+        searchInput.addEventListener('input', filterProjects);
+
+        function filterProjects() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            const filteredProjects = allProjects.filter(project => {
+                
+                // Safe access to arrays (default to empty if missing)
+                const pTags = project.tags || [];
+                const pQuickTags = project.quickTags || [];
+
+                // A. Check Text Match (Now includes quickTags)
+                const searchableText = `
+                    ${project.briefTitle} 
+                    ${project.briefDescription} 
+                    ${project.longDescription} 
+                    ${pTags.join(' ')}
+                    ${pQuickTags.join(' ')}
+                `.toLowerCase();
+                
+                const matchesText = searchableText.includes(searchTerm);
+
+                // B. Check Tag Selection
+                // A project matches if it contains ALL selected activeTags 
+                // in EITHER its 'tags' array OR its 'quickTags' array.
+                const matchesTags = activeTags.size === 0 || 
+                    Array.from(activeTags).every(selectedTag => 
+                        pTags.includes(selectedTag) || pQuickTags.includes(selectedTag)
+                    );
+
+                return matchesText && matchesTags;
+            });
+
+            renderProjects(filteredProjects);
+        }
+
+        function populateTagMenu(projects) {
+            const quickTagsSet = new Set();
+            const allTagsSet = new Set();
+
+            // Extract tags from their respective arrays
+            projects.forEach(project => {
+                if (project.quickTags) {
+                    project.quickTags.forEach(t => quickTagsSet.add(t));
+                }
+                if (project.tags) {
+                    project.tags.forEach(t => allTagsSet.add(t));
+                }
+            });
+
+            // Convert to sorted arrays
+            const uniqueQuickTags = Array.from(quickTagsSet).sort();
+            const uniqueAllTags = Array.from(allTagsSet).sort();
+
+            // 1. Render Permanent "Quick" Tags (Sourced from quickTags)
+            uniqueQuickTags.forEach(tag => {
+                createTagButton(tag, quickTagsContainer);
+            });
+
+            // 2. Render "All Tags" (Sourced from tags)
+            uniqueAllTags.forEach(tag => {
+                createTagButton(tag, allTagsGrid);
+            });
+        }
+
+        // Helper to create the button and attach logic
+        function createTagButton(tag, parentElement) {
+            const btn = document.createElement('div');
+            btn.classList.add('tag-option');
+            btn.textContent = tag;
+            btn.dataset.tag = tag; // Helper to identify this tag later
+
+            btn.addEventListener('click', () => {
+                // Toggle Logic
+                if (activeTags.has(tag)) {
+                    activeTags.delete(tag);
+                } else {
+                    activeTags.add(tag);
+                }
+
+                // Update Visuals (Syncs both lists)
+                updateTagVisuals();
+                
+                // Run Filter
+                filterProjects();
+            });
+
+            parentElement.appendChild(btn);
+        }
+
+        // New Helper: Syncs visual "active" class across BOTH lists
+        function updateTagVisuals() {
+            // Find ALL tag buttons (both quick and full list)
+            const allButtons = document.querySelectorAll('.tag-option');
+            
+            allButtons.forEach(btn => {
+                const tag = btn.dataset.tag;
+                if (activeTags.has(tag)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Updated Render Function with Click Listener
+        function renderProjects(projectsToRender, isStatic = false) {
+            container.innerHTML = '';
+
+            if (projectsToRender.length === 0) {
+                container.innerHTML = '<div class="no-results">No projects match.</div>';
+                return;
+            }
+
+            projectsToRender.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                
+                // ONLY add interactivity if it is NOT a static grid
+                if (!isStatic) {
+                    card.classList.add('interactive'); // Adds CSS hover effects/pointer
+                    card.addEventListener('click', () => openModal(project));
+                }
+
+                const tagsHtml = project.tags
+                    .map(tag => `<span class="tag">${tag}</span>`)
+                    .join('');
+
+                card.innerHTML = `
+                    <img src="${project.imageSrc}" alt="${project.briefTitle}" class="card-image">
+                    <div class="card-content">
+                        <h3>${project.briefTitle}</h3>
+                        <p>${project.briefDescription}</p>
+                        <div class="tags-container">${tagsHtml}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openModal(project) {
+            if (!modalOverlay) return;
+            
+            // Adds ?id=projectID to the URL so the link can be copied/shared
+            const newUrl = `${window.location.pathname}?id=${project.id}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+
+            modalMainTitle.textContent = project.title;
+            
+            // 1. Populate Text
+            modalMainTitle.textContent = project.longTitle;
+            modalSubTitle.textContent = project.briefTitle;
+            // Check if it's an array, map to <p> tags, join them, and set HTML
+            if (Array.isArray(project.longDescription)) {
+                modalDesc.innerHTML = project.longDescription
+                    .map(paragraph => `<p>${paragraph}</p>`)
+                    .join('');
+            } else {
+                // Fallback for old string format
+                modalDesc.textContent = project.longDescription;
+            }
+
+            // 2. Populate Links
+            modalLinks.innerHTML = '';
+            if (project.links && project.links.length > 0) {
+                project.links.forEach(link => {
+                    const a = document.createElement('a');
+                    a.href = link.url;
+                    a.textContent = link.label; // e.g., "Live Demo"
+                    a.className = 'modal-link-item';
+                    a.target = "_blank";
+                    modalLinks.appendChild(a);
+                });
+            } else {
+                modalLinks.innerHTML = '<span>No links available</span>';
+            }
+
+            // 3. Populate Tags (Reuse CSS class)
+            modalTags.innerHTML = project.tags
+                .map(tag => `<span class="tag">${tag}</span>`)
+                .join('');
+
+            // 4. Populate Gallery
+            modalGallery.innerHTML = '';
+    
+            if (project.gallery && project.gallery.length > 0) {
+                project.gallery.forEach(imgUrl => {
+                    // Create Anchor Tag
+                    const link = document.createElement('a');
+                    link.href = imgUrl;
+                    link.target = "_blank";           // Opens in new tab
+                    link.rel = "noopener noreferrer"; // Security best practice
+                    link.className = 'gallery-link';
+                    link.title = "Click to view full image"; // Tooltip hint
+
+                    // Create Image Tag
+                    const img = document.createElement('img');
+                    img.src = imgUrl;
+                    img.className = 'gallery-img';
+                    
+                    // Nest image inside link
+                    link.appendChild(img);
+                    modalGallery.appendChild(link);
+                });
+            } else {
+                modalGallery.innerHTML = '<p style="color: #64748b; font-style: italic;">No gallery images available.</p>';
+            }
+
+            // 5. Show Modal
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Removes the ?id=... parameter, reverting to the clean URL
+            window.history.pushState({}, '', window.location.pathname);
+        }
+
+        // Close Listeners
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Close when clicking outside the modal box
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+        
+        // Close on Escape Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    });
+</script>

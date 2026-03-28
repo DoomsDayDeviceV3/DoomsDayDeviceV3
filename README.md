@@ -1,4 +1,4 @@
-## Hi there 👋
+## [Click Here to Begin](https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/)
 
 <!--
 **DoomsDayDeviceV3/DoomsDayDeviceV3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
