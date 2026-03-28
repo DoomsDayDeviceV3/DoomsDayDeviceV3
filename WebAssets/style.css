@@ -37,7 +37,6 @@ main {
     flex: 1;
 }
 
-
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-colour); }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
@@ -138,6 +137,10 @@ header::after {
     gap: 2rem;
 }
 .nav-links a:hover {
+    color: var(--primary-colour);
+}
+
+a:hover {
     color: var(--primary-colour);
 }
 

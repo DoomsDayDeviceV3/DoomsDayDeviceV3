@@ -63,7 +63,7 @@ title: Home
                         .join('');
 
                     card.innerHTML = `
-                        <img src="${project.imageSrc}" alt="${project.briefTitle}" class="card-image">
+                        <img src="${window.siteBaseUrl + '/Media/' + project.imageSrc}" alt="${project.briefTitle}" class="card-image">
                         <div class="card-content">
                             <h3>${project.briefTitle}</h3>
                             <p>${project.briefDescription}</p>

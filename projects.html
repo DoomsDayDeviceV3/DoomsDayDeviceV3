@@ -279,7 +279,7 @@ title: Projects
                     .join('');
 
                 card.innerHTML = `
-                    <img src="${window.siteBaseUrl + project.imageSrc}" alt="${project.briefTitle}" class="card-image">
+                    <img src="${window.siteBaseUrl + '/Media/' +  project.imageSrc}" alt="${project.briefTitle}" class="card-image">
                     <div class="card-content">
                         <h3>${project.briefTitle}</h3>
                         <p>${project.briefDescription}</p>
@@ -339,7 +339,7 @@ title: Projects
                 project.gallery.forEach(imgUrl => {
                     // Create Anchor Tag
                     const link = document.createElement('a');
-                    link.href = window.siteBaseUrl + imgUrl;
+                    link.href = window.siteBaseUrl +  '/Media/' + imgUrl;
                     link.target = "_blank";           // Opens in new tab
                     link.rel = "noopener noreferrer"; // Security best practice
                     link.className = 'gallery-link';
@@ -347,7 +347,7 @@ title: Projects
 
                     // Create Image Tag
                     const img = document.createElement('img');
-                    img.src = window.siteBaseUrl + imgUrl;
+                    img.src = window.siteBaseUrl + '/Media/' +  imgUrl;
                     img.className = 'gallery-img';
                     
                     // Nest image inside link
