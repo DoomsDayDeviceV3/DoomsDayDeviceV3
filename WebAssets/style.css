@@ -140,9 +140,9 @@ header::after {
     color: var(--primary-colour);
 }
 
-a:hover {
+/* a:hover {
     color: var(--primary-colour);
-}
+} */
 
 .btn {
 	display: inline-block;

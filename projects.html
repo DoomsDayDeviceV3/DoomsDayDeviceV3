@@ -278,8 +278,17 @@ title: Projects
                     .map(tag => `<span class="tag">${tag}</span>`)
                     .join('');
 
+                let finalUrl = "";
+                if (imgUrl.startsWith("http")) {
+                    // It's an external link (like placeholder.co), use it exactly as-is
+                    finalUrl = imgUrl;
+                } else {
+                    // It's a local file (like horse.jpg), glue the Jekyll path together
+                    finalUrl = window.siteBaseUrl + '/Media/' + imgUrl;
+                }
+
                 card.innerHTML = `
-                    <img src="${window.siteBaseUrl + '/Media/' +  project.imageSrc}" alt="${project.briefTitle}" class="card-image">
+                    <img src="${finalUrl}" alt="${project.briefTitle}" class="card-image">
                     <div class="card-content">
                         <h3>${project.briefTitle}</h3>
                         <p>${project.briefDescription}</p>
@@ -337,9 +346,18 @@ title: Projects
     
             if (project.gallery && project.gallery.length > 0) {
                 project.gallery.forEach(imgUrl => {
+                    let finalUrl = "";
+                    if (imgUrl.startsWith("http")) {
+                        // It's an external link (like placeholder.co), use it exactly as-is
+                        finalUrl = imgUrl;
+                    } else {
+                        // It's a local file (like horse.jpg), glue the Jekyll path together
+                        finalUrl = window.siteBaseUrl + '/Media/' + imgUrl;
+                    }
+                    
                     // Create Anchor Tag
                     const link = document.createElement('a');
-                    link.href = window.siteBaseUrl +  '/Media/' + imgUrl;
+                    link.href = finalUrl;
                     link.target = "_blank";           // Opens in new tab
                     link.rel = "noopener noreferrer"; // Security best practice
                     link.className = 'gallery-link';
@@ -347,7 +365,7 @@ title: Projects
 
                     // Create Image Tag
                     const img = document.createElement('img');
-                    img.src = window.siteBaseUrl + '/Media/' +  imgUrl;
+                    img.src = finalUrl;
                     img.className = 'gallery-img';
                     
                     // Nest image inside link
