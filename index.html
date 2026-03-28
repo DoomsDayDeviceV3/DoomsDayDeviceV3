@@ -46,7 +46,7 @@ title: Home
         const MAX_CARDS = 3;
 
         // Fetch the data
-        fetch('/WebAssets/projects.json')
+        fetch("{{ '/WebAssets/projects.json' | relative_url }}")
             .then(response => response.json())
             .then(projects => {
                 const featuredProjects = projects.filter(project => project.featured === true);
@@ -77,7 +77,7 @@ title: Home
                 // If total projects > limit, show button
                 if (projects.length > visibleProjects.length) {
                     const viewMoreLink = document.createElement('a');
-                    viewMoreLink.href = '/projects.html'; 
+                    viewMoreLink.href = "{{ '/projects.html' | relative_url }}"; 
                     viewMoreLink.className = 'view-more-btn';
                     viewMoreLink.textContent = 'Details and more...';
 
