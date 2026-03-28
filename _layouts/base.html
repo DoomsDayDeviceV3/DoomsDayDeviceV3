@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ '/WebAssets/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/WebAssets/tags.css' | relative_url }}">
     
-    <link rel="icon" href="/WebAssets/IRP5.png" sizes="64x64" type="image/png">
+    <link rel="icon" href="{{ /WebAssets/IRP5.png | relative_url }}" sizes="64x64" type="image/png">
     <style>
     </style>
 </head>
@@ -25,13 +25,13 @@
 
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="/index.html">IRPortfolio</a></div>
+            <div class="logo"><a href="{{ /index.html | relative_url }}">IRPortfolio</a></div>
             <div class="menu-toggle" id="mobile-menu">☰</div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/skills.html">Skills</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="{{ /index.html | relative_url }}">Home</a></li>
+                <li><a href="{{ /skills.html | relative_url }}">Skills</a></li>
+                <li><a href="{{ /projects.html | relative_url }}">Projects</a></li>
+                <li><a href="{{ /contact.html | relative_url }}">Contact</a></li>
             </ul>
         </nav>
         <div class="hr-frame-div">
