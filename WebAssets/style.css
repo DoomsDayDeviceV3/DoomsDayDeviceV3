@@ -82,7 +82,7 @@ img { max-width: 100%; display: block; }
 }
 
 .warning-banner {
-	display: none; /* Item Hiding */
+	/* display: none; Item Hiding */
 
 	background-color: rgb(229, 196, 32);
 	border-radius: 0 0 0.2rem 0.2rem;
