@@ -366,6 +366,19 @@ title: Projects
                     // THE TRACKER: This logs an event like "viewed-image-horse.jpg"
                     link.setAttribute('data-goatcounter-click', 'viewed-image-' + finalUrl);
 
+                    link.onclick = function() {
+                        if (window.goatcounter && window.goatcounter.count) {
+                            // Clean up the URL in case it's a long external placeholder link
+                            let safeName = imgUrl.replace(/[^a-zA-Z0-9.-]/g, '-');
+                            
+                            window.goatcounter.count({
+                                path:  'viewed-image-' + safeName,
+                                title: 'Viewed Image: ' + safeName,
+                                event: true
+                            });
+                        }
+                    };
+
                     // Create Image Tag
                     const img = document.createElement('img');
                     img.src = finalUrl;
