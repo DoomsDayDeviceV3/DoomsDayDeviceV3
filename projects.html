@@ -325,8 +325,17 @@ title: Projects
             modalLinks.innerHTML = '';
             if (project.links && project.links.length > 0) {
                 project.links.forEach(link => {
+                    let internalUrl = "";
+                    if (link.url.startsWith("http")) {
+                        // It's an external link (like placeholder.co), use it exactly as-is
+                        internalUrl = link.url;
+                    } else {
+                        // It's a local file (like horse.jpg), glue the Jekyll path together
+                        internalUrl = window.siteBaseUrl + '/SpecialContent/' + link.url;
+                    }
+
                     const a = document.createElement('a');
-                    a.href = link.url;
+                    a.href = internalUrl;
                     a.textContent = link.label; // e.g., "Live Demo"
                     a.className = 'modal-link-item';
                     a.target = "_blank";

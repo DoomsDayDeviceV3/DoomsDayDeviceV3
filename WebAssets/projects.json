@@ -84,8 +84,8 @@
     "tags": ["Python", "MuJoCo", "Fusion 360", "Unix"],
     "quickTags": ["Robotics", "Software"],
     "links": [
-      {"label": "PDF: Report", "url": "juggle_report.pdf"},
-      {"label": "PDF: Poster", "url": "juggle_poster.pdf"}
+      {"label": "PDF: Report", "url": "/SpecialContent/juggle_report.pdf"},
+      {"label": "PDF: Poster", "url": "/SpecialContent/juggle_poster.pdf"}
     ],
     "featured": false
   },
