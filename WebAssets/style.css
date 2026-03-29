@@ -88,7 +88,7 @@ img { max-width: 100%; display: block; }
     /* Item Hiding */
 	display: none;
 
-    
+
 	background-color: rgb(229, 196, 32);
 	border-radius: 0 0 0.2rem 0.2rem;
 	text-align: center;
@@ -589,7 +589,7 @@ h2 {
 
 .modal-header h2 {
     margin: 0;
-    font-size: min(5vw, 5vh);
+    font-size: min(2rem, 5vw, 5vh);
     padding-right: 2rem; /* Space for close button */
     color: var(--secondary-colour);
 }
