@@ -131,18 +131,32 @@ header::after {
     align-items: center;
     /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
 }
+
 .logo {
     font-size: 3rem;
     font-weight: bold;
     color: var(--black);
 }
-.nav-links {
+
+/* .nav-links {
     display: flex;
     gap: 2rem;
-    list-style: none; /* Removes invisible bullet points */
-    margin: 0;        /* Removes default browser margin */
-    padding: 0;       /* KILLS THE GHOST PADDING */
+    list-style: none;
+    margin: 0;       
+    padding: 0; 
+} */
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;       /* Reduced gap for mobile */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;     /* Ensure it doesn't force a width */
+    max-width: 100%; /* Prevent it from ever exceeding the parent */
 }
+
 .nav-links a:hover {
     color: var(--primary-colour);
 }
