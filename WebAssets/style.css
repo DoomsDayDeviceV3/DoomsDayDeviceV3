@@ -589,7 +589,7 @@ h2 {
 
 .modal-header h2 {
     margin: 0;
-    font-size: min(2rem, 5vw, 5vh);
+    font-size: min(5vw, 5vh, 2rem);
     padding-right: 2rem; /* Space for close button */
     color: var(--secondary-colour);
 }
