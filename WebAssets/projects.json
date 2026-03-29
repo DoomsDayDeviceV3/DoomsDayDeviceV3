@@ -195,7 +195,7 @@
     "longDescription": [
       "'Battle Bots' are remote-controlled robots designed purely for combatting others, all enclosed within a dynamic arena.",
       "At RoboSoc, I took part in realising multiple robots from conception to a functional system. These ranged from the antweight class (150 g) to featherweight class (13.6 kg).",
-      "One of the biggest projects I took part in is creation of Oreo, a melty-brain robot. With a name derived from their ridiculous design and complexity, this class of robots does not feature a dedicated weapon. Instead, body's inertia is used as an accelerated blunt force tool. Surprisingly effective, these robots are a menace requiring two key components:",
+      "One of the biggest projects I took part in is creation of Oreo, a melty-brain robot. With a name derived from their ridiculous design and complexity, this class of robots does not feature a dedicated weapon. Instead, its body's inertia is used as an accelerated blunt force tool. Surprisingly effective, these robots are a menace requiring two key components:",
       "1) A robust body resilient to extreme force shockwaves, and capable of interchangeability or repair of wear and tear.",
       "2) A powerful drive system capable of full-body rotary acceleration, and a control architecture allowing high-speed braking to translate into lateral motions."
     ],
