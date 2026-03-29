@@ -27,8 +27,18 @@ title: Home
         </p>
     </div>
 
-    
+    <span id="stats-counter"></span>
 </section>
+
+<script>
+    fetch('https://ily.goatcounter.com/counter/TOTAL.svg?no_branding=true')
+    .then(response => response.text())
+    .then(data => {
+    // This takes the raw SVG code and drops it into your span
+    document.getElementById('stats-counter').innerHTML = data;
+  })
+  .catch(err => console.error('Error loading counter:', err));
+</script>
 
 <section id="projects">
     <h2 style="text-align: center; color: var(--secondary-colour);">Featured Projects</h2>

@@ -14,10 +14,10 @@
 	--fade-height: 4vh;
 }
 
-* {
+/* * {
     outline: 1px solid red !important;
 	outline-offset: -1px;
-}
+} */
 
 *, *::before, *::after {
     box-sizing: border-box;
