@@ -331,7 +331,8 @@ title: Projects
                         internalUrl = link.url;
                     } else {
                         // It's a local file (like horse.jpg), glue the Jekyll path together
-                        internalUrl = window.siteBaseUrl + '/SpecialContent/' + link.url;
+                        internalUrl = window.siteBaseUrl + link.url;
+                        // internalUrl = window.siteBaseUrl + '/SpecialContent/' + link.url;
                     }
 
                     const a = document.createElement('a');
