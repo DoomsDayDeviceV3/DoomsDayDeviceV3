@@ -1,11 +1,16 @@
 [
   {
     "id": "DS",
-    "briefTitle": "Imitation-learnt Control with Adaptability between Robots",
-    "longTitle": "Safety-gauranteed Imitation Learning for Object-catching Actions with Adaptability to any Robotic Arm of the Same Configuration.",
-    "briefDescription": "Under development...",
+    "briefTitle": "Robot-adaptive, Safe Imitation Learning.",
+    "longTitle": "Safe, Robust, Imitation-learnt Control with Genaralisation between Robot Arms.",
+    "briefDescription": "Developing 'Dynamical Systems' control for robust generalisation.",
     "longDescription": [
-      ""
+      "Modern architectures for control of robotic systems are becoming increasingly reliant on Neural Networks and black-box models. These have proven to be extremely powerful for complex morphologies and adversarial environments. Nevertheless, they are heavily flawed in that:",
+      "- they are uninterpretable to humans, and thus hard to gaurantee safety with;",
+      "- they are throttled by data harvesting and lack ability to generalise out-of-bag;",
+      "'Dynamical Systems' offer a solution to these problems by generalising tasks within human-interpretable metrics and with limited expert data. This methodology is based on classical techniques, and shows gauranteed safety for human-robot interactions. Unfortunately, it lacks the infrastructure and development of black-box models, owing to limited industry adoption.",
+      "This project seeks to provide additional open-source functionality, generalisation, and adaptibility to these 'Dynamical Systems'.",
+      "This project is still under development."
     ],
     "imageSrc": "DS.jpg",
     "gallery": [
