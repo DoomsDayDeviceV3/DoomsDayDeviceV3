@@ -1,7 +1,7 @@
 [
   {
     "id": "DS",
-    "briefTitle": "Robot-adaptive, Safe Imitation Learning.",
+    "briefTitle": "Robust, Safe, Control",
     "longTitle": "Safe, Robust, Imitation-learnt Control with Genaralisation between Robot Arms.",
     "briefDescription": "Developing 'Dynamical Systems' control for robust generalisation.",
     "longDescription": [
