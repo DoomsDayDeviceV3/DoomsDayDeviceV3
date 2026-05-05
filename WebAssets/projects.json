@@ -3,7 +3,7 @@
     "id": "DS",
     "briefTitle": "Robust, Safe, Robot Control",
     "longTitle": "Robust and Safe Imitation-learnt Control with Genaralisation between Robot Arms",
-    "briefDescription": "Developing 'Dynamical Systems' control for robust generalisation.",
+    "briefDescription": "Developing 'Dynamical Systems'-based control for robust generalisation.",
     "longDescription": [
       "Modern architectures for control of robotic systems are becoming increasingly reliant on Neural Networks and black-box models. These have proven to be extremely powerful for complex morphologies and adversarial environments. Nevertheless, they are heavily flawed in that:",
       "- they are uninterpretable to humans, thus hard to gaurantee safety of;",
@@ -15,7 +15,7 @@
     "imageSrc": "DS.jpg",
     "gallery": [
     ],
-    "tags": ["IssacSim", "Hardware", "Python", "MATLAB"],
+    "tags": ["IssacSim", "Hardware", "Python", "MATLAB", "Unix"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
       {"label": "PDF: Poster", "url": "/SpecialContent/DS_poster.pdf"}
