@@ -8,7 +8,7 @@
       "Modern architectures for control of robotic systems are becoming increasingly reliant on Neural Networks and black-box models. These have proven to be extremely powerful for complex morphologies and adversarial environments. Nevertheless, they are heavily flawed in that:",
       "- they are uninterpretable to humans, thus hard to gaurantee safety of;",
       "- they are throttled by data and struggle generalising to out-of-bag;",
-      "'Dynamical Systems' offer a solution to these problems by generalising tasks within human-interpretable metrics and with limited expert data. This methodology is based on classical techniques, and shows gauranteed safety for human-robot interactions. Unfortunately, it lacks the infrastructure and development of black-box models, owing to limited industry adoption.",
+      "'Dynamical Systems' offer a solution to these problems by generalising tasks within human-interpretable metrics and with limited expert data. This methodology is based on classical techniques, and shows gauranteed safety for human-robot interactions. Unfortunately, it lacks infrastructure and development, owing to industry's prevalent adoption of black-box models.",
       "This project seeks to provide additional open-source functionality, generalisation, and adaptibility to these 'Dynamical Systems'.",
       "This project is still under development."
     ],
@@ -28,7 +28,7 @@
     "longTitle": "Nanorobotics Research with Marc Miskin Lab",
     "briefDescription": "Hardware design, fabrication, and software for truly pioneering nanorobots.",
     "longDescription": [
-      "Custom hardware design, fabrication, and systems software for truly pioneering robots at the nanoscale.",
+      "Custom hardware design, fabrication, laser optics, and systems software for truly pioneering robots at the nanoscale.",
       "Ask me directly."
     ],
     "imageSrc": "nanorobotics.jpg",
@@ -38,6 +38,8 @@
     "tags": ["Nanofabrication", "Python", "C/C++", "Chemistry"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
+      {"label": "Site: FOX News", "url": "https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/FOX-Q7M"},
+      {"label": "Site: ABC News", "url": "https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/ABC-4K2"}
     ],
     "featured": true
   },
@@ -131,7 +133,7 @@
   {
     "id": "robosoc",
     "briefTitle": "RoboSoc - President",
-    "longTitle": "Head Chairmanship of UoM RoboSoc 2023/2024",
+    "longTitle": "Presidency of UoM RoboSoc 2023/2024",
     "briefDescription": "Leadership of a prominent robotics group teaching at all levels and hosting major events year-round.",
     "longDescription": [
       "RoboSoc is a student-led society which strives to teach robotics to anyone interested, and make it enjoyable throughout. Funded by The University of Manchester, it is free for all and teaches hands-on through a variety of projects. RoboSoc also hosts major events year-round, including the 24-hour Hack-a-Bot - the largest UK robotics hackathon.",
@@ -173,7 +175,7 @@
     "longTitle": "Competitive Robot for Line Following of Difficult Track and Conditions",
     "briefDescription": "Production of a line-following robot for difficult terrain using barebones tools.",
     "longDescription": [
-      "The Electronic Systems Project (ESP) is a year-long project within the EEE Department of The University of Manchester. In allocated teams, you must design, characterise, test, and produce a line following buggy with capable of navigation a difficult track under harsh conditions.",
+      "Developed for the Electronic Systems Project (ESP) within the EEE Department of The University of Manchester. In a pre-allocated team, we design, characterise, test, and produce a line following buggy capable of navigation a difficult track under harsh conditions.",
       "I orchestrated the team's development of the robot, and was responsible for a wide range of the robot's functionality and implementation, including:",
       "- Design and testing of bipolar motor communication and drive sensing;",
       "- Implementation of microcontroller logic, PID control, and debug I/O;",
