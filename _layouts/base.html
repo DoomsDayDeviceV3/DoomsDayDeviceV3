@@ -88,8 +88,8 @@
             menuToggle.classList.toggle('active');
 
             navbar.style.setProperty(
-                "--navflexdir",
-                getComputedStyle(navbar).getPropertyValue("--navflexdir") === "row"
+                "flex-direction",
+                getComputedStyle(navbar).getPropertyValue("flex-direction") === "row"
                     ? "column"
                     : "row"
                 );
