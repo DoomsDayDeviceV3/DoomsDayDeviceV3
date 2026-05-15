@@ -18,7 +18,8 @@
     "tags": ["IssacSim", "Hardware", "Python", "MATLAB", "Unix"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
-      {"label": "PDF: Poster", "url": "/SpecialContent/DS_poster.pdf"}
+      {"label": "PDF: Poster", "url": "/SpecialContent/DS_poster.pdf"},
+      {"label": "PDF: Report", "url": "/SpecialContent/DS_report.pdf"}
     ],
     "featured": false
   },
