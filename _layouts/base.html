@@ -83,18 +83,17 @@
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
-        const navbar = document.getElementById('nav-bar');
+        // const navbar = document.getElementById('nav-bar');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            // menuToggle.classList.toggle('active');
+            
+            if (menuToggle.classList.contains("black")) {
+                menuToggle.classList.replace("black", "grey");
+            } else {
+                menuToggle.classList.replace("grey", "black");
 
-            // navbar.style.setProperty(
-            //     "flex-direction",
-            //     getComputedStyle(navbar).getPropertyValue("flex-direction") === "row"
-            //         ? "column"
-            //         : "row"
-            //     );
+            }
         });
     </script>
 </body>
