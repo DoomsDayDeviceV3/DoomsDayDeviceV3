@@ -129,7 +129,7 @@ header::after {
     padding: 3vh 2vw 1.5vh;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
 }
