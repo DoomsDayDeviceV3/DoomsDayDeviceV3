@@ -88,11 +88,10 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             
-            if (menuToggle.classList.contains("--black")) {
-                menuToggle.classList.replace("--black", "grey");
+            if (menuToggle.style.color === "black") {
+                menuToggle.style.color = "grey";
             } else {
-                menuToggle.classList.replace("grey", "--black");
-
+                menuToggle.style.color = "black";
             }
         });
     </script>
