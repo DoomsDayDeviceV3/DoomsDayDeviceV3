@@ -7,6 +7,10 @@
     --text-colour: #334155; /* Dark Gray */
     --black: #000000;
     --white: #ffffff;
+
+    --textgraypill: #afafaf;
+    --colorgraypill: #efefef;
+
     --spacing: 2rem;
 
     --nav-z-index: 1000;
@@ -712,5 +716,16 @@ h2 {
 }
 
 .counter {
+    color: --textgraypill;
+    background-color: --colorgraypill;
+    border-radius: 1rem;
+    width: fit-content;
+    margin: 0px auto;
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+
+    /* color: --text-colour; */
+
     display: none;
 }

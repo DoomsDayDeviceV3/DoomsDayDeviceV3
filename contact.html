@@ -13,5 +13,32 @@ title: Contact
         <div style="text-align: center; max-width: 700px; margin: 7vh auto;">
             <p>Contact me directly for my resumé.</p>
         </div>
+        <div>
+            <p class="counter">
+                <span id="count"></span> &nbsp; site visits since March 2026.
+            </p>
+        </div>
     </section>
 </div>
+
+<script>
+        // Visit Count
+        const goatCounterUrl = 'https://ily.goatcounter.com/counter/TOTAL.json?no-events=t';
+
+        fetch(goatCounterUrl)
+            .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+            })
+            .then(data => {
+                const exactCount = parseInt(data.count.replace(/[^0-9]/g, ''), 10);
+            
+                const roundedCount = exactCount - (exactCount % 10);
+                
+                document.getElementById('count').innerText = roundedCount.toLocaleString();
+                })
+            .catch(error => {
+                console.error('Failed to fetch GoatCounter stats:', error);
+                document.getElementById('count').innerText = 'Unavailable';
+            });
+</script>
