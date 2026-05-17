@@ -98,17 +98,24 @@
             }
         });
     </script>
+    <script data-goatcounter="https://ily.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script>
         // Visit Count
-        window.goatcounter = window.goatcounter || {};
-        
-        window.goatcounter.visit_count = {
-            append: '#count',
-            path: 'TOTAL',
-            no_branding: true
-        };
+        const goatCounterUrl = 'https://ily.goatcounter.com/counter/TOTAL.json';
+
+        fetch(goatCounterUrl)
+            .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+            })
+            .then(data => {
+            document.getElementById('count').innerText = data.count;
+            })
+            .catch(error => {
+            console.error('Failed to fetch GoatCounter stats:', error);
+            document.getElementById('count').innerText = 'Unavailable';
+            });
     </script>
-    <script data-goatcounter="https://ily.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
