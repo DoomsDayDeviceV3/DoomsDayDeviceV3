@@ -716,8 +716,8 @@ h2 {
 }
 
 .counter {
-    color: --textgraypill;
-    background-color: --colorgraypill;
+    color: var(--textgraypill);
+    background-color: var(--colorgraypill);
     border-radius: 1rem;
     width: fit-content;
     margin: 0px auto;
