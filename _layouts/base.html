@@ -75,7 +75,7 @@
             <a href="mailto:ilyr@seas.upenn.edu">Email Me</a>
         </p>
         <p class="counter">
-            <span id="count"></span>
+            <span id="count"></span>+ visits
         </p>
     </footer>
 
@@ -98,15 +98,24 @@
             }
         });
 
-        // Visit Count
-        fetch('https://ilyr.goatcounter.com/counter/TOTAL.json')
-        .then(r => r.json())
-        .then(data => {
-        document.getElementById('count').textContent =
-            (Math.floor(data.count / 10) * 10) + '+ visits';
-
-});
+        // fetch('https://ilyr.goatcounter.com/counter/TOTAL.json')
+        // .then(r => r.json())
+        // .then(data => {
+        // document.getElementById('count').textContent =
+        //     (Math.floor(data.count / 10) * 10) + '+ visits';
+        // });
     </script>
+    <script>
+        // Visit Count
+        window.goatcounter = window.goatcounter || {};
+        
+        window.goatcounter.visit_count = {
+            append: '#count',
+            path: 'TOTAL',
+            no_branding: true
+        };
+    </script>
+    <script data-goatcounter="https://ilyr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
