@@ -1,8 +1,9 @@
 # Site Settings
 title: IRPortfolio
 description: IR Portfolio
-url: "https://doomsdaydevicev3.github.io"
-baseurl: "/DoomsDayDeviceV3"
+url: "https://ilyrr.github.io"
+baseurl: ""
+# baseurl: "/DoomsDayDeviceV3"
 
 # Build Settings
 markdown: kramdown
