@@ -46,8 +46,8 @@
     "tags": ["Nanofabrication", "Python", "C/C++", "Chemistry"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
-      {"label": "Site: FOX News", "url": "https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/FOX-Q7M"},
-      {"label": "Site: ABC News", "url": "https://doomsdaydevicev3.github.io/DoomsDayDeviceV3/ABC-4K2"}
+      {"label": "Site: FOX News", "url": "https://ilyrr.github.io/FOX-Q7M"},
+      {"label": "Site: ABC News", "url": "https://ilyrr.github.io/ABC-4K2"}
     ],
     "featured": true
   },
