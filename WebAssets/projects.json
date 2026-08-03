@@ -34,7 +34,14 @@
     ],
     "imageSrc": "nanorobotics.jpg",
     "gallery": [
-        "nanorobotics.jpg"
+        "nanorobotics.jpg",
+        "nanorobotics2.jpg",
+        "nanorobotics3.jpg",
+        "nanorobotics4.jpg",
+        "nanorobotics5.gif",
+        "nanorobotics6.jpg",
+        "nanorobotics7.jpg",
+        "nanorobotics8.gif"
     ],
     "tags": ["Nanofabrication", "Python", "C/C++", "Chemistry"],
     "quickTags": ["Robotics", "Hardware", "Software"],
