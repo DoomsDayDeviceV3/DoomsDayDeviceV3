@@ -2,18 +2,18 @@
   {
     "id": "DS",
     "briefTitle": "Robust, Safe, Robot Control",
-    "longTitle": "Robust and Safe Imitation-learnt Control with Genaralisation between Robot Arms",
+    "longTitle": "Robust and Safe Imitation-learnt Control with Genaralisation between Robots",
     "briefDescription": "Developing 'Dynamical Systems'-based control for robust generalisation.",
     "longDescription": [
-      "Modern architectures for control of robotic systems are becoming increasingly reliant on Neural Networks and black-box models. These have proven to be extremely powerful for complex morphologies and adversarial environments. Nevertheless, they are heavily flawed in that:",
+      "I belive that modern architectures for control of robotic systems are becoming increasingly reliant on Neural Networks and black-box models. These have proven to be extremely powerful for complex morphologies and adversarial environments. Nevertheless, they are heavily flawed in that:",
       "- they are uninterpretable to humans, thus hard to gaurantee safety of;",
       "- they are throttled by data and struggle generalising to out-of-bag;",
       "'Dynamical Systems' offer a solution to these problems by generalising tasks within human-interpretable metrics and with limited expert data. This methodology is based on classical techniques, and shows gauranteed safety for human-robot interactions. Unfortunately, it lacks infrastructure and development, owing to industry's prevalent adoption of black-box models.",
-      "This project seeks to provide additional open-source functionality, generalisation, and adaptibility to these 'Dynamical Systems'.",
-      "This project is still under development."
+      "Through several projects, I am providing additional open-source functionality, generalisation, and adaptibility to these 'Dynamical Systems'."
     ],
     "imageSrc": "DS.jpg",
     "gallery": [
+      "DS2.gif"
     ],
     "tags": ["IssacSim", "Hardware", "Python", "MATLAB", "Unix"],
     "quickTags": ["Robotics", "Hardware", "Software"],
@@ -27,10 +27,10 @@
     "id": "nanorobotics",
     "briefTitle": "Research: Nanorobotics",
     "longTitle": "Nanorobotics Research with Marc Miskin Lab",
-    "briefDescription": "Hardware design, fabrication, and software for truly pioneering nanorobots.",
+    "briefDescription": "Hardware design, fabrication, and software for truly pioneering microrobots.",
     "longDescription": [
-      "Custom hardware design, fabrication, laser optics, and systems software for truly pioneering robots at the nanoscale.",
-      "Ask me directly."
+      "Custom hardware design, fabrication, laser optics, and systems software for truly pioneering robots at the microscale.",
+      "Reach out to me for details!"
     ],
     "imageSrc": "nanorobotics.jpg",
     "gallery": [
@@ -77,7 +77,7 @@
       {"label": "PDF: Currently Unavailable", "url": ""},
       {"label": "Site: Nyström NCut", "url": "https://ncut-pytorch.readthedocs.io/en/latest/"}
     ],
-    "featured": true
+    "featured": false
   },
   {
     "id": "juggling",
@@ -150,7 +150,7 @@
       "I was also responsible for care of our membership (over 300 strong). This meant serious Risk Assessments, workshop oversight, and emergency leadership. It also meant personal care of the member's social experience and learning, and striving to provide the most enriching experience possible.",
       "On the managerial side, I also drove growth and new endevours. I took responsibility over sponsorships and industry connections. I also regularly liased with the University President, researchers, and the Engineering Vice Dean of Education."
     ],
-    "imageSrc": "robosoc.jpg",
+    "imageSrc": "robosoc3.jpg",
     "gallery": [
       "robosoc.jpg",
       "robosoc2.jpeg",
@@ -175,7 +175,7 @@
     "links": [
       {"label": "Site: RoboSoc", "url": "https://uom-robosoc.com/"}
     ],
-    "featured": false
+    "featured": true
   },
   {
     "id": "buggy",
