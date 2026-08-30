@@ -11,11 +11,15 @@
       "'Dynamical Systems' offer a solution to these problems by generalising tasks within human-interpretable metrics and with limited expert data. This methodology is based on classical techniques, and shows gauranteed safety for human-robot interactions. Unfortunately, it lacks infrastructure and development, owing to industry's prevalent adoption of black-box models.",
       "Through several projects, I am providing additional open-source functionality, generalisation, and adaptibility to these 'Dynamical Systems'."
     ],
-    "imageSrc": "DS.jpg",
+    "imageSrc": "DS4.jpg",
     "gallery": [
-      "DS2.gif"
+      "DS.jpg",
+      "DS2.gif",
+      "DS3.gif",
+      "DS4.jpg",
+      "DS5.gif"
     ],
-    "tags": ["IssacSim", "Hardware", "Python", "MATLAB", "Unix"],
+    "tags": ["IssacSim", "Hardware", "Python", "MATLAB", "Unix", "MuJoCo", "C/C++", "Python"],
     "quickTags": ["Robotics", "Hardware", "Software"],
     "links": [
       {"label": "PDF: Poster", "url": "/SpecialContent/DS_poster.pdf"},
